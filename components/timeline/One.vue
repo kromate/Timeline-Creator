@@ -7,7 +7,7 @@
     <div class="flex ">
       <div class="grid-cols-12">
         <div class="main-timeline">
-          <div class="timeline">
+          <div v-for="n in 1" :key="n" class="timeline">
             <div class="timeline-icon"><i class="fas fa-rocket"></i></div>
             <span class="year">2002</span>
             <div class="timeline-content">
@@ -17,26 +17,7 @@
               </p>
             </div>
           </div>
-          <div class="timeline">
-            <div class="timeline-icon"><i class="fa fa-rocket"></i></div>
-            <span class="year">2015</span>
-            <div class="timeline-content">
-              <h5 class="title">March</h5>
-              <p class="description">
-                Wrote my first program with Windows Batch Scripting
-              </p>
-            </div>
-          </div>
-          <div class="timeline">
-            <div class="timeline-icon"><i class="fa fa-rocket"></i></div>
-            <span class="year">2015</span>
-            <div class="timeline-content">
-              <h5 class="title">March</h5>
-              <p class="description">
-                Wrote my first program with Windows Batch Scripting
-              </p>
-            </div>
-          </div>
+   
         </div>
       </div>
     </div>
