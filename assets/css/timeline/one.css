@@ -165,7 +165,7 @@ h4 {
 }
 
 .main-timeline .timeline:nth-child(odd) {
-  margin: -140px 0 0
+  margin: -90px 0 0
 }
 
 .main-timeline .timeline:first-child, .main-timeline .timeline:last-child:nth-child(even) {

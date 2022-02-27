@@ -45,7 +45,8 @@
 
 <script>
 export default {
-name:"TimelineOne"
+name:"TimelineOne",
+
 }
 </script>
 
