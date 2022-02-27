@@ -1,11 +1,12 @@
 <template>
-  <Tutorial />
+<one/>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
+import One from '~/components/timeline/One.vue'
 
-export default Vue.extend({
+export default{
   name: 'IndexPage',
-})
+  components: { One },
+}
 </script>
