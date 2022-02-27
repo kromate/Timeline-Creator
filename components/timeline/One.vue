@@ -4,7 +4,7 @@
       <h4 class="font-bold text-xl mb-3">LordGhostX Timeline</h4>
       <p>Welcome to my Timeline, nothing fancy here. It's more like a diary where I dump stuff because I don't want to forget it.</p>
     </div>
-    <div class="flex ">
+    <div class="flex justify-center">
       <div class="grid-cols-12">
         <div class="main-timeline">
           <div v-for="n in 1" :key="n" class="timeline">
