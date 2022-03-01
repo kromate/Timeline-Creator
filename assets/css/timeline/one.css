@@ -276,7 +276,7 @@ h4 {
     left: 25px
   }
 
-  .main-timeline .timeline-icon, .main-timeline .timeline:nth-child(2n) .timeline-icon {
+  .main-timeline .timeline-icon, .main-timel  ine .timeline:nth-child(2n) .timeline-icon {
     left: 0
   }
 

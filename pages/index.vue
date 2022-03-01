@@ -6,10 +6,19 @@
       Create Timeline for your projects, activities and milestones.
     </p>
 
-<div class="mt-5 w-full">
-    <button class=" border-purple-700 text-purple-700 hover:bg-purple-700 hover:text-white">
+<div class="mt-12 w-full flex flex-col justify-center items-center">
+    <nuxt-link to="/" class=" btn border-purple-700 text-purple-700 hover:bg-purple-700 hover:text-white">
       Get Started
-    </button>
+      <i class="fas fa-star"></i>
+    </nuxt-link >
+    <nuxt-link to="/" class=" btn border-yellow-700 text-yellow-700 hover:bg-yellow-700 hover:text-white mt-4">
+      Demo
+      <i class="fas fa-book"></i>
+    </nuxt-link >
+    <nuxt-link to="/" class=" btn border-green-700 text-green-700 hover:bg-green-700 hover:text-white mt-4">
+      Github
+      <i class="fas fa-laptop"></i>
+    </nuxt-link >
 </div>
 
   </div>
