@@ -7,7 +7,7 @@
     </p>
 
 <div class="mt-5 w-full">
-    <button class="py-2 px-7 text-xl  border-4 rounded-lg border-purple-700 text w-[25rem] max-w-[75%]">
+    <button class=" border-purple-700 text-purple-700 hover:bg-purple-700 hover:text-white">
       Get Started
     </button>
 </div>

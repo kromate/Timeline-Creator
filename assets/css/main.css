@@ -9,8 +9,10 @@
 font-family: 'Fredoka', sans-serif;
 }
 
-/* @layer components{
-
-} */
+@layer components{
+.btn{
+    @apply py-2 px-7 text-xl  border-4 rounded-lg  duration-150 font-semibold w-[25rem] max-w-[75%]
+}
+}
 
 
