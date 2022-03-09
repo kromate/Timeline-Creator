@@ -7,7 +7,7 @@
     </p>
 
 <div class="mt-12 w-full flex flex-col justify-center items-center">
-    <nuxt-link to="/" class=" btn border-white text-white ">
+    <nuxt-link to="/setup" class=" btn border-white text-white ">
       Get Started
       <i class="fas fa-star"></i>
     </nuxt-link >
@@ -26,7 +26,7 @@
 </div>
 </template>
 
-<script lang="ts">
+<script>
 
 export default{
   name: 'IndexPage',
