@@ -8,6 +8,14 @@ export const setupGlobalData = useStorage('setupGlobalData', {
     timelineDate: []
 })
 
+export const useSetup = () => {
+    const addData = (value:never) => {
+        setupGlobalData.value.timelineDate.push(value)
+    }
 
+    return {
+        addData
+    }
+}
 
 
