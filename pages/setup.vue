@@ -1,15 +1,15 @@
 <template>
-	<div class="flex flex-col w-full min-h-full h-screen justify-center items-center bg-slate-800 ">
+	<div class="flex flex-col w-full h-screen justify-center items-center bg">
 		<div class="md:px-10 px-6 w-full md:w-auto">
 			<div class="mb-14">
-				<h1 class="text-3xl font-semibold text-left">Setup page</h1>
+				<h1 class="text-3xl font-semibold text-left text">Setup page</h1>
 			</div>
 			<form >
 				<div
 					class="flex flex-col items-center  md:mt-12 mt-6 w-full"
 				>
 					<div class="flex flex-col w-full lg:min-w-[30.75rem]">
-						<label for="title" class="font-extrabold text-base text-litBlack mb-3">
+						<label for="title" class="font-extrabold text-base text mb-3">
 							Title
 						</label>
 						<input
@@ -22,7 +22,7 @@
 						/>
 					</div>
 					<div class="flex flex-col w-full mt-12">
-						<label for="desc" class="font-extrabold text-base text-litBlack mb-3">
+						<label for="desc" class="font-extrabold text-base text mb-3">
 							Description
 						</label>
 						<div class="flex items-center w-full">

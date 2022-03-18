@@ -1,6 +1,6 @@
 <template>
 
-	<div class="w-full h-screen dark:bg-slate-800">
+	<div class="w-full h-screen bg">
 		<div class="container mx-auto flex flex-col justify-center items-center h-full text-center">
 			<h1 class="md:text-6xl text-4xl font-bold text-white title tracking-wider mb-4">Welcome to Timelinx</h1>
 			<p class="md:text-2xl text-lg text-black dark:text-white">
@@ -12,11 +12,11 @@
 					Get Started
 					<i class="fas fa-star"></i>
 				</nuxt-link >
-				<nuxt-link to="/demo" class=" btn border-white text-white  mt-4">
+				<nuxt-link to="/demo" class=" btn border-white   mt-4">
 					Demo
 					<i class="fas fa-book"></i>
 				</nuxt-link >
-				<a href="/" target="_blank" class=" btn border-white text-white  mt-4">
+				<a href="https://github.com/kromate/Timeline-Creator" target="_blank" class=" btn border-white   mt-4">
 					Github
 					<i class="fas fa-laptop"></i>
 				</a >

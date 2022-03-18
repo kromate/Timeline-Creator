@@ -21,6 +21,14 @@ font-family: 'Fredoka', sans-serif;
     @apply  border border-black  py-4 px-6 rounded-lg min-h-[3.2rem] lg:min-w-[13.75rem] 
 }
 
+.text{
+  @apply text-black dark:text-white
+}
+
+.bg{
+  @apply dark:bg-slate-800 bg-slate-300
+}
+
 }
 
 
