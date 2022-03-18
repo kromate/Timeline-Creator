@@ -1,7 +1,7 @@
 <template>
-	<div :class="{'dark': darkMode}">
+	<div :class="{'dark': GlobalState.darkMode}">
 		<div class="fixed top-9 right-10">
-			<input id="checkbox" v-model="darkMode" type="checkbox" class="checkbox">
+			<input id="checkbox" v-model="GlobalState.darkMode" type="checkbox" class="checkbox">
 			<label for="checkbox" class="label">
 				<i class='fas fa-sun'></i>
 				<i class="fas fa-moon"></i>
@@ -13,14 +13,12 @@
 </template>
 
 <script>
-import {ref} from '@nuxtjs/composition-api'
+
+import { GlobalState } from '~/composables/useGlobals'
 export default {
 	name:'DafaultLayout',
-
 	setup(){
-		const darkMode = ref(true)
-
-		return {darkMode }
+		return {GlobalState }
 	}
 }
 </script>
