@@ -1,7 +1,7 @@
-import { ref, watch } from "@nuxtjs/composition-api";
+// import { ref, watch } from "@nuxtjs/composition-api";
+import { useStorage } from '@vueuse/core'
 
-
-export const globalData = ref({
+export const setupGlobalData = useStorage('setupGlobalData', {
     title: '',
     desc: '',
     step: 0,
@@ -9,7 +9,5 @@ export const globalData = ref({
 })
 
 
-watch(globalData, (globalData, prevState) => {
-    console.log(globalData, prevState);
-    
-}, {deep: true})
+
+

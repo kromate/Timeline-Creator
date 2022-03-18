@@ -9,11 +9,11 @@
 			>
 				<div class="flex flex-col w-full sm:min-w-[30.75rem]">
 					<label for="title" class="font-extrabold text-base text mb-3">
-						Title {{globalData.title}}
+						Title 
 					</label>
 					<input
 						id="title"
-						v-model="globalData.title"
+						v-model="setupGlobalData.title"
 						type="test"
 						name="title"
 						class="input"
@@ -27,7 +27,7 @@
 					<div class="flex items-center w-full">
 						<textarea
 							id="desc"
-							v-model="globalData.desc"
+							v-model="setupGlobalData.desc"
 							rows="5"
 							name="desc"
 							class="input w-full"
@@ -45,13 +45,13 @@
 </template>
 
 <script>
-import { globalData } from '~/composables/useSetup'
+import { setupGlobalData } from '~/composables/useSetup'
 
 export default {
 	name:'SetupPage',
 
 	setup(){
-		return{globalData}
+		return{setupGlobalData}
 	}
 }
 </script>
