@@ -3,13 +3,9 @@
 		<div class="md:px-10 px-6 w-full md:w-auto">
 
 	
-			<div class="mb-14">
-				<h1 class="text-heading font-semibold text-left">Log In</h1>
-				<span class="text-gray text-left text-base">
-					Description caption
-				</span>
+			<div class="mb-14 mt-8">
+				<h1 class="text-3xl font-semibold text-left">Setup page</h1>
 
-		
 			</div>
 
 			<form >
@@ -19,45 +15,42 @@
 					class="flex flex-col items-center  md:mt-12 mt-6 w-full"
 				>
 					<div class="flex flex-col w-full lg:min-w-[30.75rem]">
-						<label for="Phone" class="font-extrabold text-base text-litBlack mb-3">
-							Email
+						<label for="title" class="font-extrabold text-base text-litBlack mb-3">
+							Title
 						</label>
 						<input
-							id="email"
-							v-model="email"
-							type="Email"
-							name="email"
+							id="title"
+							v-model="title"
+							type="test"
+							name="title"
 							class="input"
-							placeholder="example@youremail.com"
+							placeholder="Enter the Timeline title"
 						/>
 					</div>
 					<div class="flex flex-col w-full mt-12">
-						<label for="Phone" class="font-extrabold text-base text-litBlack mb-3">
-							Password
+						<label for="desc" class="font-extrabold text-base text-litBlack mb-3">
+							Description
 						</label>
 						<div class="flex items-center w-full">
-							<input
-								id="password"
-								v-model="password"
-								:type="showPassword ? 'text':'Password'"
-								name="password"
+							<textarea
+								id="desc"
+								v-model="description"
+								rows="5"
+								name="desc"
 								class="input w-full"
-								placeholder="********"
+								placeholder="Enter the timeline description"
 							/>
-							<p class="-ml-16" @click="toggleShow">{{showPassword ? 'hide':'show'}}</p>
 						</div>
 				
 					</div>
 	
 				</div>
 
-				<div class="flex items-center mt-16 w-full">
-					<div class="flex flex-col items-center justify-center w-full">
-						<button class="btn h-[65px]	bg-black w-full text-white mb-8" disabled>Login</button>
+				<div class="flex items-center justify-between mt-16 w-full">
 
-						<p class="font-bold">Don't have an account?  <nuxt-link to="/auth/signup" class="text-primary"> Create an Account
-						</nuxt-link></p>
-					</div>
+					<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="button" @click.prevent="$router.back()">Back</button>
+					<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" >Next</button>
+
 				</div>
 			</form>
 

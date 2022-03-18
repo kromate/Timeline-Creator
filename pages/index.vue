@@ -1,13 +1,14 @@
 <template>
-	<div class="w-full h-screen bg-slate-800">
+
+	<div class="w-full h-screen dark:bg-slate-800">
 		<div class="container mx-auto flex flex-col justify-center items-center h-full text-center">
 			<h1 class="md:text-6xl text-4xl font-bold text-white title tracking-wider mb-4">Welcome to Timelinx</h1>
-			<p class="md:text-2xl text-lg text-orange-400">
+			<p class="md:text-2xl text-lg text-black dark:text-white">
 				Create Timeline for your projects, activities and milestones.
 			</p>
 
 			<div class="mt-12 w-full flex flex-col justify-center items-center">
-				<nuxt-link to="/setup" class=" btn border-white text-white ">
+				<nuxt-link to="/setup" class=" btn ">
 					Get Started
 					<i class="fas fa-star"></i>
 				</nuxt-link >
@@ -24,6 +25,8 @@
 		</div>
 
 	</div>
+
+
 </template>
 
 <script>
@@ -35,9 +38,9 @@ export default{
 
 <style scoped>
     .title {
-            text-shadow: -2px 2px 0 #727cb6,
-                          2px 2px 0 #727cb6,
-                         2px -2px 0 #727cb6,
-                        -2px -2px 0 #727cb6;
+            text-shadow: -2px 2px 0 #000,
+                          2px 2px 0 #000,
+                         2px -2px 0 #000,
+                        -2px -2px 0 #000;
         }
 </style>
