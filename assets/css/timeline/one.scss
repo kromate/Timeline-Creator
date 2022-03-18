@@ -126,7 +126,7 @@ h4 {
   width: 80px;
   height: 150px;
   border-radius: 50%;
-  background: #fff;
+  background: transparent;
   position: absolute;
   top: -7%;
   right: 15px;
@@ -179,7 +179,10 @@ h4 {
 }
 
 .main-timeline .timeline:nth-child(2n) .timeline-icon {
-  left: -40px
+  left: -40px;
+  @media screen and (max-width: 700px) {
+    left: 0px
+  }
 }
 
 .main-timeline .timeline:nth-child(2n) .year {
@@ -261,7 +264,7 @@ h4 {
   color: #ed687c
 }
 
-@media only screen and (max-width:990px) {
+@media only screen and (max-width:700px) {
   .main-timeline .timeline {
     width: 100%
   }
@@ -310,4 +313,8 @@ h4 {
     width: 0;
     height: 0
   }
+
+  .main-timeline .timeline:nth-child(2n) .timeline-icon {
+  left: 0px;
+}
 }
