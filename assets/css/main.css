@@ -22,7 +22,7 @@ font-family: 'Fredoka', sans-serif;
 }
 
 .text{
-  @apply text-black dark:text-white
+  @apply !text-black dark:!text-white
 }
 
 .bg{

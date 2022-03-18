@@ -151,10 +151,11 @@ h4 {
 }
 
 .main-timeline .description {
-  font-size: 15px;
+  font-size: 16px;
   color: #7f8386;
   line-height: 25px
 }
+
 
 .main-timeline .timeline:nth-child(2) {
   margin-top: 100px
@@ -300,9 +301,6 @@ h4 {
     border-left: none
   }
 
-  .main-timeline .timeline-content .description {
-    color: #666
-  }
 
   .main-timeline .timeline-content, .main-timeline .timeline:nth-child(2n) .timeline-content {
     text-align: left;

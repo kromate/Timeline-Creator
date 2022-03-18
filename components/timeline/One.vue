@@ -12,7 +12,7 @@
 						<span class="year text">2002</span>
 						<div class="timeline-content">
 							<h5 class="title">March 23</h5>
-							<p class="description">
+							<p class="description text">
 								He who would be referred to as <strong>The Lord of Ghosts</strong> | <strong>Everyone's neighborhood ghost</strong> was born
 							</p>
 						</div>
