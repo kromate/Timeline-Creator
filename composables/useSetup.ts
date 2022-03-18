@@ -4,7 +4,8 @@ import { useStorage } from '@vueuse/core'
 export const setupGlobalData = useStorage('setupGlobalData', {
     title: '',
     desc: '',
-    step: 0,
+    date: '',
+    details: '',
     timelineDate: []
 })
 
