@@ -34,9 +34,8 @@ export const useSetup = () => {
         setupGlobalData.value.details = ""
     }
     const delData = (i) => {
-        console.log(i);
+        setupGlobalData.value.timelineDate.splice(i, 1)
         
-        // setupGlobalData.value.timelineDate.slice
     }
 
     const formatDate = (value, type) => {

@@ -1,6 +1,6 @@
 <template>
 	<div class=" inset-x-0 bottom-4 w-full flex justify-center">
-		<form class="bg rounded-xl  shadow-lg p-4 mx-4 w-full md:w-auto ">
+		<form class="bg rounded-xl  shadow-lg p-4 mx-4 w-full md:w-auto " @submit.prevent="addData">
 			<div
 				class="flex flex-col items-center  mt-6 w-full"
 			>
@@ -9,6 +9,7 @@
 						Date 
 					</label>
 					<input
+					required
 						id="title"
 						v-model="setupGlobalData.date"
 						type="date"
@@ -23,6 +24,7 @@
 					</label>
 					<div class="flex items-center w-full">
 						<textarea
+						required
 							id="desc"
 							v-model="setupGlobalData.details"
 							rows="3"
@@ -35,7 +37,7 @@
 			</div>
 			<div class="flex items-center justify-between mt-8 w-full gap-5">
 				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="button" @click.prevent="$router.back()">Back</button>
-				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="button" @click.prevent="addData">add</button>
+				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="submit" >add</button>
 			</div>
 		</form>
 	</div>
