@@ -36,10 +36,10 @@
 				</div>
 			</div>
 			<div class="flex items-center justify-between mt-8 w-full gap-5">
-				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="button" @click.prevent="$router.back()">Back</button>
-				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="submit" >add</button>
+				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-4" type="button" @click.prevent="$router.back()">Back</button>
+				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-4" type="submit" >add</button>
 			</div>
-			<button class="btn h-[60px]	bg-black w-full text-white " type="submit" >Save</button>
+			<button class="btn h-[60px]	bg-black w-full text-white " type="button" >Save</button>
 		</form>
 	</div>
 </template>
