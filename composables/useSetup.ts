@@ -1,7 +1,20 @@
-// import { ref, watch } from "@nuxtjs/composition-api";
-import { useStorage } from '@vueuse/core'
+// import { ref, watch } from '@nuxtjs/composition-api';
+import { useStorage } from '@vueuse/core';
 
-const 
+const months = {
+    '01': 'January',
+    '02': 'February',
+    '03': 'March',
+    '04': 'April',
+    '05': 'May',
+    '06': 'June',
+    '07': 'July',
+    '08': 'August',
+    '09': 'September',
+    '10': 'October',
+    '11': 'November',
+    '12': 'December',
+}
 
 export const setupGlobalData = useStorage('setupGlobalData', {
     title: '',
@@ -20,18 +33,23 @@ export const useSetup = () => {
         setupGlobalData.value.date = ""
         setupGlobalData.value.details = ""
     }
+    const delData = (i) => {
+        console.log(i);
+        
+        // setupGlobalData.value.timelineDate.slice
+    }
 
     const formatDate = (value, type) => {
         if (type == 'year') {
             return value.split("-")[0]
         } else {
-             return value
+             return `${months[value.split("-")[1]]} ${value.split("-")[2]}`
         }
         
     }
 
     return {
-        addData, formatDate
+        addData, formatDate, delData
     }
 }
 

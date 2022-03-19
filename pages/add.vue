@@ -7,8 +7,8 @@
 		<div class="flex justify-center">
 			<div class="grid-cols-12">
 				<div class="main-timeline">
-					<div v-for="timeline in setupGlobalData.timelineDate" :key="timeline.details" class="timeline">
-						<div class="timeline-icon"><i class="fas fa-rocket"></i></div>
+					<div v-for="(timeline, index) in setupGlobalData.timelineDate" :key="timeline.details" class="timeline">
+						<div class="timeline-icon" @click="delData(index)"><i class="fas fa-rocket"></i></div>
 						<span class="year text">{{formatDate(timeline.date, 'year')}}</span>
 						<div class="timeline-content">
 							<h5 class="title">{{formatDate(timeline.date, 'month')}}</h5>
@@ -41,9 +41,9 @@ export default {
 	}],
 	setup() {
 
-		const {formatDate} = useSetup()
+		const {formatDate, delData} = useSetup()
 		return {
-			setupGlobalData, formatDate
+			setupGlobalData, formatDate, delData
 		}
 	}
 }
