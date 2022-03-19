@@ -9,9 +9,9 @@
 				<div class="main-timeline">
 					<div v-for="timeline in setupGlobalData.timelineDate" :key="timeline.details" class="timeline">
 						<div class="timeline-icon"><i class="fas fa-rocket"></i></div>
-						<span class="year text">{{formatDate(timeline.date)}}</span>
+						<span class="year text">{{formatDate(timeline.date, 'year')}}</span>
 						<div class="timeline-content">
-							<h5 class="title">March 23</h5>
+							<h5 class="title">{{formatDate(timeline.date, 'month')}}</h5>
 							<p class="description text">
 								{{timeline.details}} 
 							</p>

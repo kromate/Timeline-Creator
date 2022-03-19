@@ -1,6 +1,8 @@
 // import { ref, watch } from "@nuxtjs/composition-api";
 import { useStorage } from '@vueuse/core'
 
+const 
+
 export const setupGlobalData = useStorage('setupGlobalData', {
     title: '',
     desc: '',
@@ -19,8 +21,13 @@ export const useSetup = () => {
         setupGlobalData.value.details = ""
     }
 
-    const formatDate = (value) => {
-        return value.split("-")[1]
+    const formatDate = (value, type) => {
+        if (type == 'year') {
+            return value.split("-")[0]
+        } else {
+             return value
+        }
+        
     }
 
     return {
