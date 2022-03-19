@@ -1,17 +1,17 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true,
-  },
-  extends: [
-    '@nuxtjs/eslint-config-typescript',
-    'plugin:nuxt/recommended',
-    'prettier',
-  ],
-  plugins: [],
-  // add your custom rules here
- rules: {
+	root: true,
+	env: {
+		browser: true,
+		node: true,
+	},
+	extends: [
+		'@nuxtjs/eslint-config-typescript',
+		'plugin:nuxt/recommended',
+		'prettier',
+	],
+	plugins: [],
+	// add your custom rules here
+	rules: {
 		'no-console': 'warn',
 		'no-debugger': 'warn',
 		'vue/no-deprecated-slot-attribute': 'off',
@@ -40,7 +40,7 @@ module.exports = {
 		'no-use-before-define': 'off',
 		indent: ['error', 'tab', { SwitchCase: 1 }],
 		'no-mixed-spaces-and-tabs': ['off', 'smart-tabs'],
-		semi: ['error', 'never'],
+		semi: ['off', 'never'],
 		quotes: ['error', 'single'],
 		'prefer-const': ['error'],
 		'arrow-parens': ['error', 'always'],
