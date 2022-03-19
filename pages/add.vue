@@ -22,28 +22,28 @@
 			</div>
 		</div>
 
-	
+		<AddContainer/>
 
 	</div>
 </template>
 
 <script>
 import { setupGlobalData } from '~/composables/useSetup'
+import AddContainer from '~/components/addContainer.vue'
 
 export default {
-	name:'AddPage',
-	middleware:[({redirect})=>{
-		if(!setupGlobalData.value.title){
-			redirect.push('/')
+	name: 'AddPage',
+	components: { AddContainer },
+	middleware: [({ redirect }) => {
+		if (!setupGlobalData.value.title) {
+			redirect('/setup')
 		}
 	}],
-
-	setup(){
-		return{
+	setup() {
+		return {
 			setupGlobalData
 		}
 	}
-
 }
 </script>
 

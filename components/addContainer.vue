@@ -35,19 +35,21 @@
 			</div>
 			<div class="flex items-center justify-between mt-8 w-full gap-5">
 				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="button" @click.prevent="$router.back()">Back</button>
-				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="button" @click.prevent="">add</button>
+				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="button" @click.prevent="addData">add</button>
 			</div>
 		</form>
 	</div>
 </template>
 
 <script>
-import { setupGlobalData } from '~/composables/useSetup'
+import { setupGlobalData, useSetup } from '~/composables/useSetup'
 export default {
 	name:'AddContainer',    
 	setup(){
+
+		const {addData} = useSetup()
 		return{
-			setupGlobalData
+			setupGlobalData, addData
 		}
 	}
 }
