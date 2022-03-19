@@ -1,5 +1,5 @@
 <template>
-	<div class="fixed inset-x-0 bottom-4 w-full flex justify-center">
+	<div class=" inset-x-0 bottom-4 w-full flex justify-center">
 		<form class="bg rounded-xl  shadow-lg p-4 mx-4 w-full md:w-auto ">
 			<div
 				class="flex flex-col items-center  mt-6 w-full"
@@ -47,9 +47,9 @@ export default {
 	name:'AddContainer',    
 	setup(){
 
-		const {addData} = useSetup()
+		const {addData, } = useSetup()
 		return{
-			setupGlobalData, addData
+			setupGlobalData, addData, 
 		}
 	}
 }

@@ -7,13 +7,13 @@
 		<div class="flex justify-center">
 			<div class="grid-cols-12">
 				<div class="main-timeline">
-					<div v-for="n in setupGlobalData.timelineDate" :key="n" class="timeline">
+					<div v-for="timeline in setupGlobalData.timelineDate" :key="timeline.details" class="timeline">
 						<div class="timeline-icon"><i class="fas fa-rocket"></i></div>
-						<span class="year text">2002</span>
+						<span class="year text">{{formatDate(timeline.date)}}</span>
 						<div class="timeline-content">
 							<h5 class="title">March 23</h5>
 							<p class="description text">
-								He who would be referred to as <strong>The Lord of Ghosts</strong> | <strong>Everyone's neighborhood ghost</strong> was born
+								{{timeline.details}} 
 							</p>
 						</div>
 					</div>
@@ -28,7 +28,7 @@
 </template>
 
 <script>
-import { setupGlobalData } from '~/composables/useSetup'
+import { setupGlobalData, useSetup } from '~/composables/useSetup'
 import AddContainer from '~/components/addContainer.vue'
 
 export default {
@@ -40,8 +40,10 @@ export default {
 		}
 	}],
 	setup() {
+
+		const {formatDate} = useSetup()
 		return {
-			setupGlobalData
+			setupGlobalData, formatDate
 		}
 	}
 }

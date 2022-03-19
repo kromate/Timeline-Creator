@@ -19,8 +19,12 @@ export const useSetup = () => {
         setupGlobalData.value.details = ""
     }
 
+    const formatDate = (value) => {
+        return value.split("-")[1]
+    }
+
     return {
-        addData
+        addData, formatDate
     }
 }
 
