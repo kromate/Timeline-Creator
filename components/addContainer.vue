@@ -9,12 +9,12 @@
 						Date 
 					</label>
 					<input
-					required
 						id="title"
 						v-model="setupGlobalData.date"
+						required
 						type="date"
 						name="title"
-						class="input"
+						class="input w-full"
 						placeholder="Enter the Timeline title"
 					/>
 				</div>
@@ -24,9 +24,9 @@
 					</label>
 					<div class="flex items-center w-full">
 						<textarea
-						required
 							id="desc"
 							v-model="setupGlobalData.details"
+							required
 							rows="3"
 							name="desc"
 							class="input w-full"
@@ -39,6 +39,7 @@
 				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="button" @click.prevent="$router.back()">Back</button>
 				<button class="btn h-[60px]	bg-black w-1/2 text-white mb-8" type="submit" >add</button>
 			</div>
+			<button class="btn h-[60px]	bg-black w-full text-white " type="submit" >Save</button>
 		</form>
 	</div>
 </template>
