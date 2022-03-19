@@ -1,5 +1,7 @@
 // import { ref, watch } from '@nuxtjs/composition-api';
 import { useStorage } from '@vueuse/core'
+import { GlobalState } from './useGlobals'
+
 
 const months = {
 	'01': 'January',
@@ -24,6 +26,8 @@ export const setupGlobalData = useStorage('setupGlobalData', {
 	timelineDate: []
 })
 
+
+
 export const useSetup = () => {
 	const addData = () => {
 		setupGlobalData.value.timelineDate.push({
@@ -38,8 +42,13 @@ export const useSetup = () => {
         
 	}
 
+	const saveData = () => {
+		console.log(setupGlobalData)
+		// GlobalState.value.savedData.push(setupGlobalData)
+	}
+
 	const formatDate = (value, type) => {
-		if (type == 'year') {
+		if (type === 'year') {
 			return value.split('-')[0]
 		} else {
 			return `${months[value.split('-')[1]]} ${value.split('-')[2]}`
@@ -48,7 +57,7 @@ export const useSetup = () => {
 	}
 
 	return {
-		addData, formatDate, delData
+		addData, formatDate, delData, saveData
 	}
 }
 
