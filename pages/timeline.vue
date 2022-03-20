@@ -1,5 +1,5 @@
 <template>
-	<div class="flex flex-col w-full h-screen justify-start items-center bg">
+	<div class="flex flex-col w-full min-h-screen justify-start items-center bg py-10">
 		<div class="md:px-10 px-6  w-auto">
 			<div class="mb-14 w-full text-center mt-4">
 				<h1 class="text-3xl font-semibold text mb-2">My Timelines</h1>
@@ -15,8 +15,8 @@
 					<h1 class="text-xl underline mb-2">Anthony's Timeline</h1>
 					<p>this is the timeline description for those that want to test</p>
 
-					<div class="flex gap-4">
-						<span v-for="i in 3" :key="i" >View</span>
+					<div class="flex gap-4 mt-4">
+						<span v-for="i in 3" :key="i" class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">View</span>
 					</div>
 				</article>
 			</div>
