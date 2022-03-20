@@ -43,7 +43,10 @@ export const useSetup = () => {
 	}
 
 	const saveData = () => {
-		console.log(setupGlobalData)
+	delete setupGlobalData.value.date
+	delete setupGlobalData.value.date
+	delete setupGlobalData.value.date
+		console.log(setupGlobalData);
 		// GlobalState.value.savedData.push(setupGlobalData)
 	}
 
