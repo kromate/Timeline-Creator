@@ -68,9 +68,9 @@ export const useSetup = () => {
 			}
 		}
 		
-	
+		cleanAll()
 
-		// router.push('/')
+		router.push('/')
 
 	}
 
