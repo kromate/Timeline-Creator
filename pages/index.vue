@@ -12,6 +12,10 @@
 					Get Started
 					<i class="fas fa-star"></i>
 				</nuxt-link >
+				<nuxt-link to="/timeline" class=" btn border-white   mt-4">
+					My Timelines
+					<i class="fas fa-time"></i>
+				</nuxt-link >
 				<nuxt-link to="/demo" class=" btn border-white   mt-4">
 					Demo
 					<i class="fas fa-book"></i>

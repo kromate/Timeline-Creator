@@ -34,11 +34,6 @@ import AddContainer from '~/components/addContainer.vue'
 export default {
 	name: 'AddPage',
 	components: { AddContainer },
-	middleware: [({ redirect }) => {
-		if (!setupGlobalData.value.title) {
-			redirect('/setup')
-		}
-	}],
 	setup() {
 
 		const {formatDate, delData} = useSetup()
