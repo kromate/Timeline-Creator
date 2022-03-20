@@ -1,4 +1,4 @@
-// import { ref, watch } from '@nuxtjs/composition-api';
+
 import { useStorage } from '@vueuse/core'
 import { GlobalState } from './useGlobals'
 
@@ -43,11 +43,9 @@ export const useSetup = () => {
 	}
 
 	const saveData = () => {
-	delete setupGlobalData.value.date
-	delete setupGlobalData.value.date
-	delete setupGlobalData.value.date
-		console.log(setupGlobalData);
+		console.log(this)
 		// GlobalState.value.savedData.push(setupGlobalData)
+		// this.$router.push('/')
 	}
 
 	const formatDate = (value, type) => {
