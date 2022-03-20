@@ -1,9 +1,12 @@
 
 import { useStorage } from '@vueuse/core'
+import {  useRouter } from '@nuxtjs/composition-api'
 import { GlobalState } from './useGlobals'
 
-const router = useRouter()
  
+
+
+
 const months = {
 	'01': 'January',
 	'02': 'February',
@@ -30,6 +33,7 @@ export const setupGlobalData = useStorage('setupGlobalData', {
 
 
 export const useSetup = () => {
+	const router = useRouter()
 	const addData = () => {
 		setupGlobalData.value.timelineDate.push({
 			date: setupGlobalData.value.date,
@@ -44,11 +48,17 @@ export const useSetup = () => {
 	}
 
 	const saveData = () => {
+		GlobalState.value.savedData = null
+		// router.push('/')
+		// delete setupGlobalData.value.date
+		// delete setupGlobalData.value.details
 
-		
-		if (!GlobalState.value.savedData.includes(setupGlobalData)) {
-			GlobalState.value.savedData.push(setupGlobalData)
-		}
+		// console.log(GlobalState.value);
+		// console.log(GlobalState.value.savedData.includes(setupGlobalData));
+		// if (!GlobalState.value.savedData.includes(setupGlobalData)) {
+		// 	GlobalState.value.savedData.push(setupGlobalData)
+		// }
+
 	}
 
 	const formatDate = (value, type) => {

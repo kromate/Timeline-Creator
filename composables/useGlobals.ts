@@ -4,7 +4,7 @@ import { useStorage } from '@vueuse/core';
 export const GlobalState = useStorage('GlobalState', {
 	darkMode: '',
 	savedData:[]
-})
+}) 
 
 
 
