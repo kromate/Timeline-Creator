@@ -16,7 +16,9 @@
 					<p>this is the timeline description for those that want to test</p>
 
 					<div class="flex gap-4 mt-4">
-						<span v-for="i in 3" :key="i" class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">View</span>
+						<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">View</span>
+						<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Share</span>
+						<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Delete</span>
 					</div>
 				</article>
 			</div>

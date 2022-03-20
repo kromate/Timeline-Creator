@@ -14,7 +14,7 @@
 				</nuxt-link >
 				<nuxt-link to="/timeline" class=" btn border-white   mt-4">
 					My Timelines
-					<i class="fas fa-time"></i>
+					<i class="fas fa-clock"></i>
 				</nuxt-link >
 				<nuxt-link to="/demo" class=" btn border-white   mt-4">
 					Demo
