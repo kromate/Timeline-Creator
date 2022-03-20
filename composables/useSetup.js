@@ -45,8 +45,10 @@ export const useSetup = () => {
 
 	const saveData = () => {
 
-		// GlobalState.value.savedData.push(setupGlobalData)
-		router.push('/')
+		
+		if (!GlobalState.value.savedData.includes(setupGlobalData)) {
+			GlobalState.value.savedData.push(setupGlobalData)
+		}
 	}
 
 	const formatDate = (value, type) => {
