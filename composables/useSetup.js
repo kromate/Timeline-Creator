@@ -2,7 +2,8 @@
 import { useStorage } from '@vueuse/core'
 import { GlobalState } from './useGlobals'
 
-
+const router = useRouter()
+ 
 const months = {
 	'01': 'January',
 	'02': 'February',
@@ -43,9 +44,9 @@ export const useSetup = () => {
 	}
 
 	const saveData = () => {
-		console.log(this)
+
 		// GlobalState.value.savedData.push(setupGlobalData)
-		// this.$router.push('/')
+		router.push('/')
 	}
 
 	const formatDate = (value, type) => {
