@@ -30,7 +30,13 @@ export const setupGlobalData = useStorage('setupGlobalData', {
 	timelineDate: []
 })
 
-
+const cleanAll = () => {
+	setupGlobalData.value.title = ''
+	setupGlobalData.value.desc = ''
+	setupGlobalData.value.date = ''
+	setupGlobalData.value.details = ''
+	setupGlobalData.value.timelineDate = []
+}
 
 export const useSetup = () => {
 	const router = useRouter()
@@ -48,16 +54,23 @@ export const useSetup = () => {
 	}
 
 	const saveData = () => {
-		GlobalState.value.savedData = null
-		// router.push('/')
-		// delete setupGlobalData.value.date
-		// delete setupGlobalData.value.details
+		
+		delete setupGlobalData.value.date
+		delete setupGlobalData.value.details
 
-		// console.log(GlobalState.value);
-		// console.log(GlobalState.value.savedData.includes(setupGlobalData));
-		// if (!GlobalState.value.savedData.includes(setupGlobalData)) {
-		// 	GlobalState.value.savedData.push(setupGlobalData)
-		// }
+		console.log(GlobalState.value);
+		if (GlobalState.value.savedData == null || undefined) {
+			GlobalState.value.savedData = []
+		} else {
+			console.log(GlobalState.value.savedData.includes(setupGlobalData));
+			if (!GlobalState.value.savedData.includes(setupGlobalData)) {
+				GlobalState.value.savedData.push(setupGlobalData)
+			}
+		}
+		
+	
+
+		// router.push('/')
 
 	}
 
