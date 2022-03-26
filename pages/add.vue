@@ -7,6 +7,16 @@
 		<div class="flex justify-center">
 			<div class="grid-cols-12">
 				<div class="main-timeline">
+					<div v-if="setupGlobalData.timelineDate.length < 2" class="timeline ">
+						<div class="timeline-icon" ><i class="fas fa-rocket"></i></div>
+						<span class="year text">2001</span>
+						<div class="timeline-content ">
+							<h5 class="title">February 17</h5>
+							<p class="description text">
+								This is the start of yet another awesome timeline. <br> <span class="text-red-500">Instrustions: Double click on the rocket for more options, and this would disappear after adding two events to this timeline</span>
+							</p>
+						</div>
+					</div>
 					<div v-for="(timeline, index) in setupGlobalData.timelineDate" :key="timeline.details" class="timeline ">
 						<div class="timeline-icon" @dblclick="delData(index)"><i class="fas fa-rocket"></i></div>
 						<span class="year text">{{formatDate(timeline.date, 'year')}}</span>
