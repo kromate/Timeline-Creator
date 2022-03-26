@@ -26,7 +26,7 @@ export default {
 	],
   
 	env: {
-		baseUrl: process.env.FIRE_API_KEY || ''
+		FIRE_API_KEY: process.env.FIRE_API_KEY || ''
 	},
 
 	// Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins

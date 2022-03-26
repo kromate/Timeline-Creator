@@ -5,7 +5,7 @@ import { initializeApp } from 'firebase/app';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: 'AIzaSyCNYlmOMKDtL7amcDHV2pzZltWPf6tfaTc',
+	apiKey: process.env.FIRE_API_KEY,
 	authDomain: 'timelinx.firebaseapp.com',
 	projectId: 'timelinx',
 	storageBucket: 'timelinx.appspot.com',
