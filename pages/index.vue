@@ -37,6 +37,10 @@
 
 export default{
 	name: 'IndexPage',
+	setup(){
+		console.log(process.env)
+		return{}
+	}
 }
 </script>
 
