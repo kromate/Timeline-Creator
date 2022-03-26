@@ -8,19 +8,19 @@
 			</p>
 
 			<div class="mt-12 w-full flex flex-col justify-center items-center">
-				<nuxt-link to="/setup" class=" btn ">
+				<nuxt-link to="/setup" class=" btn max-w-[75%] ">
 					Get Started
 					<i class="fas fa-star"></i>
 				</nuxt-link >
-				<nuxt-link to="/timeline" class=" btn border-white   mt-4">
+				<nuxt-link to="/timeline" class=" btn max-w-[75%] border-white   mt-4">
 					My Timelines
 					<i class="fas fa-clock"></i>
 				</nuxt-link >
-				<nuxt-link to="/demo" class=" btn border-white   mt-4">
+				<nuxt-link to="/demo" class=" btn max-w-[75%] border-white   mt-4">
 					Demo
 					<i class="fas fa-book"></i>
 				</nuxt-link >
-				<a href="https://github.com/kromate/Timeline-Creator" target="_blank" class=" btn border-white   mt-4">
+				<a href="https://github.com/kromate/Timeline-Creator" target="_blank" class=" btn max-w-[75%] border-white   mt-4">
 					Github
 					<i class="fas fa-laptop"></i>
 				</a >
