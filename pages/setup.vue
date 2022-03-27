@@ -15,15 +15,15 @@ export default {
 }
 </script>
 
-<style>
-.slideUp-enter-from,
+<style scoped>
+.slideUp-enter,
 .slideUp-leave-to{
 opacity: 0;
-transform: translateY(-100px);
+transform: translateY(500px);
 }
 
 .slideUp-enter-active,
 .slideUp-leave-active{
-    transition: all 0.35s ease;
+    transition: all 0.5s ease;
 }
 </style>

@@ -41,15 +41,3 @@ export default {
 }
 </script>
 
-<style>
-.slideUp-enter-from,
-.slideUp-leave-to{
-opacity: 0;
-transform: translateY(-100px);
-}
-
-.slideUp-enter-active,
-.slideUp-leave-active{
-    transition: all 0.35s ease;
-}
-</style>
