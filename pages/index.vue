@@ -4,11 +4,12 @@
 		<div class="container mx-auto flex flex-col justify-center items-center h-full text-center">
 			<h1 class="md:text-6xl text-4xl font-bold text-white title tracking-wider mb-4">Welcome to Timelinx</h1>
 			<p class="md:text-2xl text-lg text-black dark:text-white">
-				Create Timeline for your projects, activities and milestones.
+				Create Timeline for your projects, activities and milestones. 
 			</p>
 
 			<div class="mt-12 w-full flex flex-col justify-center items-center">
-				<div v-if="user"  class=" btn max-w-[75%] cursor-pointer" @click="googleAuth">
+			
+				<div v-if="user == undefined"  class=" btn max-w-[75%] cursor-pointer" @click="googleAuth">
 					Sign in 
 					<i class="fas fa-user"></i>
 				</div>
@@ -29,6 +30,11 @@
 					Github
 					<i class="fas fa-laptop"></i>
 				</a>
+
+				<div v-if="user != undefined"  class=" btn max-w-[75%] cursor-pointer" @click="googleAuth">
+					Sign in 
+					<i class="fas fa-user"></i>
+				</div>
 			</div>
 
 		</div>
@@ -45,6 +51,9 @@ export default{
 	name: 'IndexPage',
 	setup(){
 		const {user} = useUser()
+
+		console.log(user);
+		
 		return{user, googleAuth}
 	}
 }

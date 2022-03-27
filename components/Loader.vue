@@ -1,6 +1,6 @@
 <template>
 	<transition name="fade" appear>
-		<div class="fixed inset-x-0 h-screen w-screen bg flex justify-center items-center flex-col ">
+		<div v-if="active" class="fixed inset-x-0 h-screen w-screen bg flex justify-center items-center flex-col ">
 			<div class="waviy text">
 				<span style="--i:1">L</span>
 				<span style="--i:2">O</span>
@@ -11,14 +11,20 @@
 				<span style="--i:7">G</span>
 			</div>
 
-			<p class="text text-3xl mt-20">Logging you in</p>
+			<p class="text text-3xl mt-20">{{message}}</p>
 		</div>
 	</transition>
 </template>
 
 <script>
+import { useLoading } from '~/composables/useNotification'
 export default {
 	name:'LoaderComponent',
+	setup(){
+		const {active, message} = useLoading()
+
+		return {active, message}
+	}
 }
 </script>
 

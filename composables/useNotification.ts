@@ -32,6 +32,5 @@ export const useLoading = () => {
 		loadingState.message.value = ''
 		loadingState.active.value = false
 	}
-
-	return {...alertState, openLoading, closeLoading}
+	return {...loadingState, openLoading, closeLoading}
 }

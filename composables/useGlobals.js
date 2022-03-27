@@ -8,16 +8,16 @@ export const GlobalState = useStorage('GlobalState', {
 	savedData: [],
 	isLoggedIn: false,
 	user:null
-}).value
+})
 
 
 export const useUser = () => {
 	const saveUser = (user) => {
-		GlobalState.user = user
+		GlobalState.value.user = user
 	}
 
 	const clearUser = () => {
-		GlobalState.user = null
+		GlobalState.value.user = null
 	}
  
 	return {...GlobalState, saveUser, clearUser}
