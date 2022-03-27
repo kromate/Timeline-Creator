@@ -10,6 +10,10 @@ export const useAlert = () => {
 		alertState.message.value = msg
 		alertState.active.value = true
 	}
+	const closeAlert = (msg:string) => {
+		alertState.message.value = ''
+		alertState.active.value = false
+	}
 
-	return {...alertState, openAlert}
+	return {...alertState, openAlert, closeAlert}
 }
