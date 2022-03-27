@@ -8,7 +8,7 @@
 			</p>
 
 			<div class="mt-12 w-full flex flex-col justify-center items-center">
-				<div class=" btn max-w-[75%] cursor-pointer"  @click="googleAuth">
+				<div v-if="user"  class=" btn max-w-[75%] cursor-pointer" @click="googleAuth">
 					Sign in 
 					<i class="fas fa-user"></i>
 				</div>
@@ -28,7 +28,7 @@
 				<a href="https://github.com/kromate/Timeline-Creator" target="_blank" class=" btn max-w-[75%] border-white   mt-4">
 					Github
 					<i class="fas fa-laptop"></i>
-				</a >
+				</a>
 			</div>
 
 		</div>
@@ -40,10 +40,12 @@
 
 <script>
 import {googleAuth} from '@/firebase/auth'
+import { useUser } from '~/composables/useGlobals'
 export default{
 	name: 'IndexPage',
 	setup(){
-		return{ googleAuth}
+		const {user} = useUser()
+		return{user, googleAuth}
 	}
 }
 </script>
