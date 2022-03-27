@@ -11,7 +11,7 @@
 				<span style="--i:7">G</span>
 			</div>
 
-			<p class="text text-3xl mt-20">Kinnichiwa</p>
+			<p class="text text-3xl mt-20">Logging you in</p>
 		</div>
 	</transition>
 </template>
@@ -27,7 +27,7 @@ export default {
 opacity: 0;
 }
 .fade-enter-active, .fade-leave-active{
-	transition: all .5s ease;
+	transition: all .35s ease;
 }
 .waviy {
   position: relative;

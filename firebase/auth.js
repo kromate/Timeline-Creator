@@ -1,6 +1,6 @@
 import { app } from './init';
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
-import { useAlert } from '~/composables/useAlert';
+import { useAlert } from '~/composables/useNotification';
 
 const {openAlert} = useAlert()
 
