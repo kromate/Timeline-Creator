@@ -1,17 +1,19 @@
 <template>
-	<div class="fixed inset-x-0 h-screen w-screen bg flex justify-center items-center flex-col ">
-		<div class="waviy text">
-			<span style="--i:1">L</span>
-			<span style="--i:2">O</span>
-			<span style="--i:3">A</span>
-			<span style="--i:4">D</span>
-			<span style="--i:5">I</span>
-			<span style="--i:6">N</span>
-			<span style="--i:7">G</span>
-		</div>
+	<transition name="fade" appear>
+		<div class="fixed inset-x-0 h-screen w-screen bg flex justify-center items-center flex-col ">
+			<div class="waviy text">
+				<span style="--i:1">L</span>
+				<span style="--i:2">O</span>
+				<span style="--i:3">A</span>
+				<span style="--i:4">D</span>
+				<span style="--i:5">I</span>
+				<span style="--i:6">N</span>
+				<span style="--i:7">G</span>
+			</div>
 
-		<p class="text text-3xl mt-20">Kinnichiwa</p>
-	</div>
+			<p class="text text-3xl mt-20">Kinnichiwa</p>
+		</div>
+	</transition>
 </template>
 
 <script>
@@ -21,6 +23,12 @@ export default {
 </script>
 
 <style scoped>
+.fade-enter, .fade-leave-to{
+opacity: 0;
+}
+.fade-enter-active, .fade-leave-active{
+	transition: all .5s ease;
+}
 .waviy {
   position: relative;
   -webkit-box-reflect: below -20px linear-gradient(transparent, rgba(0,0,0,.2));
