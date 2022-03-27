@@ -1,5 +1,6 @@
 <template>
 	<div :class="{'dark': GlobalState.darkMode}">
+		<AlertBox/>
 		<div class="fixed top-9 right-10">
 			<input id="checkbox" v-model="GlobalState.darkMode" type="checkbox" class="checkbox">
 			<label for="checkbox" class="label">
@@ -15,10 +16,12 @@
 <script>
 
 import { GlobalState } from '~/composables/useGlobals'
+import AlertBox from '~/components/AlertBox.vue'
 export default {
-	name:'DafaultLayout',
-	setup(){
-		return {GlobalState }
+	name: 'DafaultLayout',
+	components: { AlertBox },
+	setup() {
+		return { GlobalState };
 	}
 }
 </script>

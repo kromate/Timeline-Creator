@@ -8,7 +8,12 @@
 			</p>
 
 			<div class="mt-12 w-full flex flex-col justify-center items-center">
-				<nuxt-link to="/setup" class=" btn max-w-[75%] ">
+				<div class=" btn max-w-[75%] cursor-pointer"  @click="googleAuth">
+					Sign in 
+					<i class="fas fa-user"></i>
+				</div>
+
+				<nuxt-link to="/setup" class=" btn max-w-[75%] mt-4">
 					Get Started
 					<i class="fas fa-star"></i>
 				</nuxt-link >
@@ -34,11 +39,11 @@
 </template>
 
 <script>
-
+import {googleAuth} from '@/firebase/auth'
 export default{
 	name: 'IndexPage',
 	setup(){
-		return{}
+		return{ googleAuth}
 	}
 }
 </script>

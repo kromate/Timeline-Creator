@@ -28,6 +28,9 @@ font-family: 'Fredoka', sans-serif;
 .bg{
   @apply dark:bg-slate-800 bg-slate-200
 }
+.bg-inverse{
+  @apply bg-slate-800 dark:bg-slate-200
+}
 
 }
 
