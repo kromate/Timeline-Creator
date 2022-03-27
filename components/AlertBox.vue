@@ -10,14 +10,11 @@
 </template>
 
 <script>
-import { ref } from 'vue-demi'
 import { useAlert } from '~/composables/useNotification'
 export default {
 	name:'AlertBox',
 	setup(){
 		const {active, message, closeAlert} = useAlert()
-
-
 		return{active, message, closeAlert }
 	}
 }

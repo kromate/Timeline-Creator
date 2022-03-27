@@ -4,6 +4,10 @@ const alertState = {
 	active: ref(false),
 	message: ref('')
 }
+const loadingState = {
+	active: ref(false),
+	message: ref('')
+}
 
 export const useAlert = () => {
 	const openAlert = (msg:string) => {
@@ -17,4 +21,17 @@ export const useAlert = () => {
 	}
 
 	return {...alertState, openAlert, closeAlert}
+}
+
+export const useLoading = () => {
+	const openLoading = (msg:string) => {
+		loadingState.message.value = msg
+		loadingState.active.value = true
+	}
+	const closeLoading = () => {
+		loadingState.message.value = ''
+		loadingState.active.value = false
+	}
+
+	return {...alertState, openLoading, closeLoading}
 }
