@@ -1,5 +1,8 @@
 import { app } from './init';
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import { useAlert } from '~/composables/useAlert';
+
+const {openAlert} = useAlert()
 
 const auth = getAuth(app);
 
@@ -20,17 +23,12 @@ const provider = new GoogleAuthProvider();
 
 export const googleAuth = ()=> signInWithPopup(auth, provider)
 	.then((result) => {
-		// This gives you a Google Access Token. You can use it to access the Google API.
-		// const credential = GoogleAuthProvider.credentialFromResult(result);
-		// const token = credential.accessToken;
-		// The signed-in user info.
 		const user = result.user;
-
 		console.log(user)
-		// ...
+		openAlert('You have successfully signed in 🥳')
 	}).catch((error) => {
 		console.log(error);
-        
+		openAlert(`Oops seems something went wrong 😕 : ${error.message}`)
 		// Handle Errors here.
 		const errorCode = error.code;
 		const errorMessage = error.message;

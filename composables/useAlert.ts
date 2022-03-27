@@ -9,8 +9,9 @@ export const useAlert = () => {
 	const openAlert = (msg:string) => {
 		alertState.message.value = msg
 		alertState.active.value = true
+		setTimeout(closeAlert, 3000)
 	}
-	const closeAlert = (msg:string) => {
+	const closeAlert = () => {
 		alertState.message.value = ''
 		alertState.active.value = false
 	}
