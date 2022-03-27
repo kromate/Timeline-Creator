@@ -11,7 +11,7 @@
 
 <script>
 import { ref } from 'vue-demi'
-import { useAlert } from '~/composables/useAlert'
+import { useAlert } from '~/composables/useNotification'
 export default {
 	name:'AlertBox',
 	setup(){
