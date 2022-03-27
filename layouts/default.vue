@@ -1,7 +1,7 @@
 <template>
 	<div :class="{'dark': GlobalState.darkMode}">
 		<AlertBox/>
-		<div class="fixed top-9 right-10">
+		<div class="fixed top-9 right-10 cursor-pointer ">
 			<input id="checkbox" v-model="GlobalState.darkMode" type="checkbox" class="checkbox">
 			<label for="checkbox" class="label">
 				<i class='fas fa-sun'></i>
