@@ -1,5 +1,5 @@
 import { app } from './init';
-import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useAlert, useLoading } from '~/composables/useNotification';
 
 
@@ -45,3 +45,11 @@ export const googleAuth = () => {
 		// ...
 		});
 } 
+
+export const signOutUser = () => {
+	signOut(auth).then(() => {
+		// Sign-out successful.
+	}).catch((error) => {
+		openAlert(`Oops seems something went wrong 😕 : ${error.message}`)
+	});
+}
