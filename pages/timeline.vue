@@ -7,10 +7,17 @@
 			</div>
 
 
-			<div class="gap-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 ">
+			
+			<transition-group
+				appear
+				class="gap-5 grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 "
+				@before-enter="beforeEnter"
+				@enter="enter"
+			>
 				<article
-					v-for="n in 10"
-					:key="n" class="overflow-hidden rounded-md shadow-xl p-4 border border-slate-700 dark:border-slate-200 text w-[22rem] max-w-[100%]"
+					v-for="(n, index) in 10"
+					:key="n"
+					:data-index="index" class="overflow-hidden rounded-md shadow-xl p-4 border border-slate-700 dark:border-slate-200 text w-[22rem] max-w-[100%]"
 				>
 					<h1 class="text-xl underline mb-2">Anthony's Timeline</h1>
 					<p>this is the timeline description for those that want to test</p>
@@ -21,7 +28,8 @@
 						<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Delete</span>
 					</div>
 				</article>
-			</div>
+			</transition-group>
+
 
 		
 
@@ -34,10 +42,29 @@
 </template>
 
 <script>
-
+import {gsap} from 'gsap'
 export default {
 	name: 'SetupPage',
 
+	setup(){
+		const beforeEnter = (el) => {
+			  el.style.opacity = 0
+			el.style.transform = 'translateY(100px)'
+		}
+		const enter = (el, done) => {
+			gsap.to(el, {
+				opacity: 1,
+				y: 0,
+				duration: 0.5,
+				onComplete: done,
+				delay: el.dataset.index * 0.1
+			})
+		}
+
+		return{ 
+			beforeEnter, enter
+		}
+	}
 }
 </script>
 

@@ -6,8 +6,15 @@
 		</div>
 		<div class="flex justify-center">
 			<div class="grid-cols-12">
-				<div class="main-timeline">
-					<div v-if="setupGlobalData.timelineDate.length < 2" class="timeline ">
+			
+				<transition-group
+					appear
+					class="main-timeline"
+					name="sideLeft"
+					@before-enter="beforeEnter"
+					@enter="enter"
+				>
+					<div v-if="setupGlobalData.timelineDate.length < 2" :key="0" class="timeline ">
 						<div class="timeline-icon" ><i class="fas fa-rocket"></i></div>
 						<span class="year text">2001</span>
 						<div class="timeline-content ">
@@ -17,7 +24,7 @@
 							</p>
 						</div>
 					</div>
-					<div v-for="(timeline, index) in setupGlobalData.timelineDate" :key="timeline.details" class="timeline ">
+					<div v-for="(timeline, index) in setupGlobalData.timelineDate" :key="timeline.details" :data-index="index+1" class="timeline ">
 						<div class="timeline-icon" @dblclick="delData(index)"><i class="fas fa-rocket"></i></div>
 						<span class="year text">{{formatDate(timeline.date, 'year')}}</span>
 						<div class="timeline-content ">
@@ -28,7 +35,10 @@
 						</div>
 					</div>
    
-				</div>
+
+
+				</transition-group>
+
 			</div>
 		</div>
 
@@ -38,6 +48,7 @@
 </template>
 
 <script>
+import {gsap} from 'gsap'
 import { setupGlobalData, useSetup } from '~/composables/useSetup'
 import AddContainer from '~/components/addContainer.vue'
 
@@ -49,11 +60,24 @@ export default {
 			redirect('/setup')
 		}
 	}],
-	setup() {
-
+	setup(){
 		const {formatDate, delData} = useSetup()
-		return {
-			setupGlobalData, formatDate, delData
+		const beforeEnter = (el) => {
+			  el.style.opacity = 0
+			el.style.transform = 'translateY(100px)'
+		}
+		const enter = (el, done) => {
+			gsap.to(el, {
+				opacity: 1,
+				y: 0,
+				duration: 0.5,
+				onComplete: done,
+				delay: el.dataset.index * 0.1
+			})
+		}
+
+		return{ 
+			beforeEnter, enter, 	setupGlobalData, formatDate, delData
 		}
 	}
 }
@@ -61,4 +85,14 @@ export default {
 
 <style scoped>
 @import url("@/assets/css/timeline/one.scss");
+
+.slideOut-leave-to{
+opacity: 0;
+transform: translateX(500px);
+}
+
+
+.slideOut-leave-active{
+    transition: all 0.5s ease;
+}
 </style>
