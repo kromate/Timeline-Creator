@@ -93,13 +93,13 @@ export default {
 <style scoped>
 @import url("@/assets/css/timeline/one.scss");
 
-.slideOut-leave-to{
+.sideLeft-leave-to{
 opacity: 0;
 transform: translateX(500px);
 }
 
 
-.slideOut-leave-active{
+.sideLeft-leave-active{
     transition: all 0.5s ease;
 }
 </style>
