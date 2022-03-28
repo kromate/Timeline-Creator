@@ -32,7 +32,7 @@
 						<i class="fas fa-laptop"></i>
 					</a>
 
-					<div v-if="user != undefined"  class=" btn max-w-[75%] cursor-pointer mt-4" @click="clearUser">
+					<div v-if="user != undefined"  class=" btn max-w-[75%] cursor-pointer mt-4" @click="signOutUser">
 						Sign Out 
 						<i class="fas fa-sign-out-alt"></i>
 					</div>
@@ -46,16 +46,16 @@
 </template>
 
 <script>
-import {googleAuth} from '@/firebase/auth'
+import {googleAuth, signOutUser} from '@/firebase/auth'
 import { useUser } from '~/composables/useGlobals'
 export default{
 	name: 'IndexPage',
 	setup(){
-		const {user, clearUser} = useUser()
+		const {user} = useUser()
 
 		console.log(user);
 		
-		return{user, googleAuth, clearUser}
+		return{user, googleAuth, signOutUser}
 	}
 }
 </script>
