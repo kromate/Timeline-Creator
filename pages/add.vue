@@ -26,16 +26,16 @@
 						</div>
 					</div>
 					<div v-for="(timeline, index) in setupGlobalData.timelineDate" :key="timeline.details" :data-index="index+1" class="timeline ">
-						<div class="timeline-icon"  @dblclick="toggleConfig(index)"><i class="fas fa-rocket"></i></div>
+						<div class="timeline-icon"  @dblclick="timeline.edit = !timeline.edit"><i class="fas fa-rocket"></i></div>
 						<span class="year text">{{formatDate(timeline.date, 'year')}}</span>
 						<div class="timeline-content ">
 							<h5 class="title">{{formatDate(timeline.date, 'month')}}</h5>
 							<p class="description text">
 								{{timeline.details}} 
 							</p>
-							<div  class="flex gap-4 mt-4">
+							<div v-if="timeline.edit2"  class="flex gap-4 mt-4">
 								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Edit</span>
-								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md" @click="delData(index)">Delete</span>
+								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md cursor-pointer" @click="delData(index)">Delete</span>
 							</div>
 						</div>
 					</div>
