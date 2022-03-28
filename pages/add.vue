@@ -26,16 +26,16 @@
 						</div>
 					</div>
 					<div v-for="(timeline, index) in setupGlobalData.timelineDate" :key="timeline.details" :data-index="index+1" class="timeline ">
-						<div class="timeline-icon" @dblclick="delData(index)"><i class="fas fa-rocket"></i></div>
+						<div class="timeline-icon"  @dblclick="toggleConfig(index)"><i class="fas fa-rocket"></i></div>
 						<span class="year text">{{formatDate(timeline.date, 'year')}}</span>
 						<div class="timeline-content ">
 							<h5 class="title">{{formatDate(timeline.date, 'month')}}</h5>
 							<p class="description text">
 								{{timeline.details}} 
 							</p>
-							<div v-if="editConfig(index)" class="flex gap-4 mt-4">
+							<div  class="flex gap-4 mt-4">
 								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Edit</span>
-								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Delete</span>
+								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md" @click="delData(index)">Delete</span>
 							</div>
 						</div>
 					</div>
@@ -54,6 +54,7 @@
 
 <script>
 import {gsap} from 'gsap'
+import { ref } from '@nuxtjs/composition-api'
 import { setupGlobalData, useSetup } from '~/composables/useSetup'
 import AddContainer from '~/components/addContainer.vue'
 
@@ -66,12 +67,7 @@ export default {
 		}
 	}],
 	setup(){
-		const editConfig = (value)=>{
-			const valueArr = []
 
-			return valueArr[value]
-
-		}
 		const {formatDate, delData} = useSetup()
 		const beforeEnter = (el) => {
 			  el.style.opacity = 0
@@ -88,7 +84,7 @@ export default {
 		}
 
 		return{ 
-			beforeEnter, enter, editConfig,	setupGlobalData, formatDate, delData
+			beforeEnter, enter,	setupGlobalData, formatDate, delData, 
 		}
 	}
 }

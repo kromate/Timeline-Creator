@@ -44,6 +44,7 @@ export const useSetup = () => {
 		setupGlobalData.value.timelineDate.push({
 			date: setupGlobalData.value.date,
 			details: setupGlobalData.value.details,
+			edit:false
 		})
 		setupGlobalData.value.date = ''
 		setupGlobalData.value.details = ''
