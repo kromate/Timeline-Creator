@@ -33,8 +33,8 @@
 							<p class="description text">
 								{{timeline.details}} 
 							</p>
-							<div v-if="timeline.edit"  class="flex gap-4 mt-4">
-								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Edit</span>
+							<div v-if="timeline.edit"  class="flex gap-4 mt-4 duration-500 transition-all">
+								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md du">Edit</span>
 								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md cursor-pointer" @click="delData(index)">Delete</span>
 							</div>
 						</div>
@@ -95,7 +95,7 @@ export default {
 
 .sideLeft-leave-to{
 opacity: 0;
-transform: translateX(500px);
+transform: translateX(2500px);
 }
 
 
