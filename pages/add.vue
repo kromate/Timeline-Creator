@@ -22,6 +22,7 @@
 							<p class="description text">
 								This is the start of yet another awesome timeline. <br> <span class="text-red-500">Instrustions: Double click on the rocket for more options, and this would disappear after adding two events to this timeline</span>
 							</p>
+					
 						</div>
 					</div>
 					<div v-for="(timeline, index) in setupGlobalData.timelineDate" :key="timeline.details" :data-index="index+1" class="timeline ">
@@ -32,6 +33,10 @@
 							<p class="description text">
 								{{timeline.details}} 
 							</p>
+							<div v-if="editConfig(index)" class="flex gap-4 mt-4">
+								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Edit</span>
+								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Delete</span>
+							</div>
 						</div>
 					</div>
    
@@ -61,6 +66,12 @@ export default {
 		}
 	}],
 	setup(){
+		const editConfig = (value)=>{
+			const valueArr = []
+
+			return valueArr[value]
+
+		}
 		const {formatDate, delData} = useSetup()
 		const beforeEnter = (el) => {
 			  el.style.opacity = 0
@@ -77,7 +88,7 @@ export default {
 		}
 
 		return{ 
-			beforeEnter, enter, 	setupGlobalData, formatDate, delData
+			beforeEnter, enter, editConfig,	setupGlobalData, formatDate, delData
 		}
 	}
 }
