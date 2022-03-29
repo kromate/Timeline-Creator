@@ -2,6 +2,7 @@
 import { useStorage } from '@vueuse/core'
 import {  useRouter } from '@nuxtjs/composition-api'
 import { GlobalState } from './useGlobals'
+import { useAlert } from './useNotification'
 
  
 
@@ -48,14 +49,22 @@ export const useSetup = () => {
 	}
 
 	const addData = () => {
-		setupGlobalData.value.timelineDate.push({
+		const data = {
 			date: setupGlobalData.value.date,
 			details: setupGlobalData.value.details,
 			edit:false
-		})
-		sortArray(setupGlobalData.value.timelineDate)
-		setupGlobalData.value.date = ''
-		setupGlobalData.value.details = ''
+		}
+
+		if (!setupGlobalData.value.timelineDate.includes(data)) {
+			setupGlobalData.value.timelineDate.push(data)
+			sortArray(setupGlobalData.value.timelineDate)
+			setupGlobalData.value.date = ''
+			setupGlobalData.value.details = ''
+		} else {
+			useAlert().openAlert('You trying to input identical data?. well I won\'t let you🤪')
+		}
+		
+
 	}
 
 	const delData = (index) => {
@@ -93,6 +102,13 @@ export const useSetup = () => {
 		const editingData = setupGlobalData.value.timelineDate.find((el, i) => i === index)
 		setupGlobalData.value.date = editingData.date
 		setupGlobalData.value.details = editingData.details
+		setupGlobalData.value.edit = false
+
+		window.scrollTo({
+			top: window.innerHeight,
+			left: 0,
+			behavior: 'smooth'
+		} )
 	}
 
 	return {
