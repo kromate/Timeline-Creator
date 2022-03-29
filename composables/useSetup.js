@@ -40,6 +40,9 @@ const cleanAll = () => {
 
 export const useSetup = () => {
 	const router = useRouter()
+	const sortArray = () => {
+		
+	}
 	const addData = () => {
 		setupGlobalData.value.timelineDate.push({
 			date: setupGlobalData.value.date,
