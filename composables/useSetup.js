@@ -40,8 +40,11 @@ const cleanAll = () => {
 
 export const useSetup = () => {
 	const router = useRouter()
-	const sortArray = () => {
-		
+
+	const sortArray = (Arr) => {
+		Arr.sort((a, b) => {
+			return (new Date(a.date) - new Date(b.date))
+		})
 	}
 	const addData = () => {
 		setupGlobalData.value.timelineDate.push({
@@ -49,11 +52,16 @@ export const useSetup = () => {
 			details: setupGlobalData.value.details,
 			edit:false
 		})
+		sortArray(setupGlobalData.value.timelineDate)
+
+		console.log(setupGlobalData.value.timelineDate);
+		
 		setupGlobalData.value.date = ''
 		setupGlobalData.value.details = ''
 	}
 	const delData = (i) => {
 		setupGlobalData.value.timelineDate.splice(i, 1)
+		sortArray(setupGlobalData.value.timelineDate)
         
 	}
 
