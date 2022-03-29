@@ -79,16 +79,9 @@ export const useSetup = () => {
 		useLoading().openLoading('Saving your Timeline, check the Timeline page to edit, share and delete🥰')
 		await saveTimeline(setupGlobalData)
 		useLoading().closeLoading()
-		// if (GlobalState.value.savedData == null || undefined) {
-		// 	GlobalState.value.savedData = []
-		// } else {
-		// 	console.log(GlobalState.value.savedData.includes(setupGlobalData));
-		// 	if (!GlobalState.value.savedData.includes(setupGlobalData)) {
-		// 		GlobalState.value.savedData.push(setupGlobalData)
-		// 	}
-		// }
-		// cleanAll()
-		// router.push('/')
+	
+		cleanAll()
+		router.push('/')
 
 	}
 

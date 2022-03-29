@@ -1,4 +1,5 @@
 import { app } from './init';
+// eslint-disable-next-line import/named
 import { getAuth, GoogleAuthProvider, signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth';
 import { useAlert, useLoading } from '~/composables/useNotification';
 import { useUser } from '~/composables/useGlobals';
@@ -13,8 +14,6 @@ const auth = getAuth(app);
 
 onAuthStateChanged(auth, (user) => {
 	if (user) {
-		const uid = user.uid;
-		console.log(user)
 		saveUser(user)
 	} else {
 		clearUser()

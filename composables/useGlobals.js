@@ -18,8 +18,6 @@ export const currentUser = {
 
 export const useUser = () => {
 	const saveUser = (user) => {
-		console.log('====',user);
-		
 		currentUser.user.value = user
 		GlobalState.value.UserRef = JSON.stringify(user)
 		GlobalState.value.isLoggedIn = true
