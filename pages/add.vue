@@ -34,7 +34,7 @@
 								{{timeline.details}} 
 							</p>
 							<div v-if="timeline.edit"  class="flex gap-4 mt-4 duration-500 transition-all">
-								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md du">Edit</span>
+								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md cursor-pointer" @click="editData(index)">Edit</span>
 								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md cursor-pointer" @click="delData(index)">Delete</span>
 							</div>
 						</div>
@@ -68,7 +68,7 @@ export default {
 	}],
 	setup(){
 
-		const {formatDate, delData} = useSetup()
+		const {formatDate, delData, editData} = useSetup()
 		const beforeEnter = (el) => {
 			  el.style.opacity = 0
 			el.style.transform = 'translateY(100px)'
@@ -84,7 +84,7 @@ export default {
 		}
 
 		return{ 
-			beforeEnter, enter,	setupGlobalData, formatDate, delData, 
+			beforeEnter, enter,	setupGlobalData, formatDate, delData, editData
 		}
 	}
 }

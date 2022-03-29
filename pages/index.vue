@@ -52,9 +52,6 @@ export default{
 	name: 'IndexPage',
 	setup(){
 		const {user} = useUser()
-
-		console.log(user);
-		
 		return{user, googleAuth, signOutUser}
 	}
 }

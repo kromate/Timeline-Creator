@@ -46,6 +46,7 @@ export const useSetup = () => {
 			return (new Date(a.date) - new Date(b.date))
 		})
 	}
+
 	const addData = () => {
 		setupGlobalData.value.timelineDate.push({
 			date: setupGlobalData.value.date,
@@ -53,24 +54,19 @@ export const useSetup = () => {
 			edit:false
 		})
 		sortArray(setupGlobalData.value.timelineDate)
-
-		console.log(setupGlobalData.value.timelineDate);
-		
 		setupGlobalData.value.date = ''
 		setupGlobalData.value.details = ''
 	}
-	const delData = (i) => {
-		setupGlobalData.value.timelineDate.splice(i, 1)
+
+	const delData = (index) => {
+		setupGlobalData.value.timelineDate.splice(index, 1)
 		sortArray(setupGlobalData.value.timelineDate)
-        
 	}
 
 	const saveData = () => {
-		
 		delete setupGlobalData.value.date
 		delete setupGlobalData.value.details
 
-		console.log(GlobalState.value);
 		if (GlobalState.value.savedData == null || undefined) {
 			GlobalState.value.savedData = []
 		} else {
@@ -79,9 +75,7 @@ export const useSetup = () => {
 				GlobalState.value.savedData.push(setupGlobalData)
 			}
 		}
-		
 		cleanAll()
-
 		router.push('/')
 
 	}
@@ -95,8 +89,14 @@ export const useSetup = () => {
         
 	}
 
+	const editData = (index) => {
+		const editingData = setupGlobalData.value.timelineDate.find((el, i) => i === index)
+		setupGlobalData.value.date = editingData.date
+		setupGlobalData.value.details = editingData.details
+	}
+
 	return {
-		addData, formatDate, delData, saveData
+		addData, formatDate, delData, saveData, editData
 	}
 }
 
