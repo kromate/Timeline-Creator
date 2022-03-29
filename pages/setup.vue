@@ -15,7 +15,7 @@ export default {
 	name: 'SetupPage',
 	components: { Setup },
 	middleware:[({ redirect }) => {
-		if (useUser().user) {
+		if (!useUser().UserRef) {
 			redirect('/')
 			useAlert().openAlert('You need to sign in to create timelines dhur🙄')
 		}

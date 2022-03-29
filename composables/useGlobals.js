@@ -12,7 +12,7 @@ export const GlobalState = useStorage('GlobalState', {
 })
 
 export const currentUser = {
-	user:ref(JSON.parse(GlobalState.value.UserRef))
+	user:GlobalState.value.UserRef ? ref(JSON.parse(GlobalState.value.UserRef)) : ref(null)
 }
 
 

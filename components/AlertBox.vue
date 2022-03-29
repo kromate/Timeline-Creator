@@ -1,6 +1,6 @@
 <template>
 	<transition appear name="slide">
-		<div v-if="active"  class="overflow-hidden max-w-[70%] rounded-md shadow-xl fixed top-8 left-4 p-4 border border-slate-700 dark:border-slate-200 text w-[22rem] ">
+		<div v-if="active"  class="overflow-hidden max-w-[70%] rounded-md shadow-xl fixed top-8 left-4 p-4 border border-slate-700 dark:border-slate-200 text w-[22rem] bg ">
 			<div class="h-full w-1.5 bg-inverse absolute left-0 top-0"/>
 			<i class="fas fa-times-circle absolute right-1 top-0 cursor-pointer text-xl" @click="closeAlert"></i>
 			<p>{{message}}</p>
