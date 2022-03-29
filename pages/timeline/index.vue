@@ -31,9 +31,12 @@
 				</article>
 			</transition-group>
 
-			<div v-else class="grid grid-cols-1">
+			<div v-else class="grid grid-cols-1 place-content-center place-items-center">
 				<lottie-player src="https://assets2.lottiefiles.com/packages/lf20_heejrebm.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-				<h3 class="text text-center">You currently do not have any timeline, fix up</h3>
+				<h3 class="text text-center">You currently do not have any timeline, fix up 👍</h3>
+				<nuxt-link to="/setup" class=" btn max-w-[75%] mt-4 justify-center items-center flex">
+					Create Timeline
+				</nuxt-link >
 			</div>
 		
 
