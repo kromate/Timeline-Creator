@@ -65,6 +65,7 @@ export default {
 	middleware: [({ redirect }) => {
 		if (!setupGlobalData.value.title) {
 			redirect('/setup')
+			useAlert().openAlert('I never expected this from you 😣, Kindly fill the title and the description')
 		}
 		if (!useUser().UserRef) {
 			redirect('/')
