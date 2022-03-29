@@ -15,8 +15,8 @@
 				@enter="enter"
 			>
 				<article
-					v-for="(n, index) in 10"
-					:key="n"
+					v-for="(n, index) in result"
+					:key="n.id"
 					:data-index="index" class="overflow-hidden rounded-md shadow-xl p-4 border border-slate-700 dark:border-slate-200 text w-[22rem] max-w-[100%]"
 				>
 					<h1 class="text-xl underline mb-2">Anthony's Timeline</h1>
@@ -43,6 +43,7 @@
 
 <script>
 import {gsap} from 'gsap'
+import { onMounted, ref } from '@nuxtjs/composition-api';
 import { useUser } from '~/composables/useGlobals'
 import { useAlert } from '~/composables/useNotification'
 import { getUserTimeline } from '~/firebase/firestore'
@@ -56,9 +57,13 @@ export default {
 		}
 	}],
 
-	setup(){
+	 setup(){
+		const result = ref([])
+		onMounted(async () => {
+			result.value = await getUserTimeline()
+		})
+		
 
-		getUserTimeline()
 		const beforeEnter = (el) => {
 			  el.style.opacity = 0
 			el.style.transform = 'translateY(100px)'
@@ -72,9 +77,10 @@ export default {
 				delay: el.dataset.index * 0.1
 			})
 		}
+		console.log(result);
 
 		return{ 
-			beforeEnter, enter
+			beforeEnter, enter, result
 		}
 	}
 }

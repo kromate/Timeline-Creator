@@ -2,6 +2,7 @@ import { getFirestore, doc, setDoc, deleteDoc, collection, query, where, getDocs
 import { v4 as uuidv4 } from 'uuid';
 import { app } from './init';
 import { useUser } from '~/composables/useGlobals';
+import { useLoading } from '~/composables/useNotification';
 
 const {user} = useUser()
 
@@ -18,7 +19,7 @@ export const delTimeline = async (id) => {
 }
 
 export const getUserTimeline = async () => {
-	const result = [];
+	const result = []
 	const loading = true;
 	const id = user.value.uid;
 	const timelineRef = collection(db, 'timelines');
@@ -28,5 +29,5 @@ export const getUserTimeline = async () => {
 		result.push(doc.data())
 	});
 
-	return {result, loading}
+	return result
 }
