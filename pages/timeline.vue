@@ -45,6 +45,12 @@
 import {gsap} from 'gsap'
 export default {
 	name: 'SetupPage',
+	middleware:[({ redirect }) => {
+		if (!useUser().UserRef) {
+			redirect('/')
+			useAlert().openAlert('You need to sign in to create timelines dhur🙄')
+		}
+	}],
 
 	setup(){
 		const beforeEnter = (el) => {
