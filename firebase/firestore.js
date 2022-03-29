@@ -4,7 +4,8 @@ import { app } from './init';
 import { useUser } from '~/composables/useGlobals';
 import { useLoading } from '~/composables/useNotification';
 
-const {user} = useUser()
+const { user } = useUser()
+const {openLoading, closeLoading} = useLoading()
 
 export const db = getFirestore(app);
 
@@ -15,10 +16,13 @@ export const saveTimeline = async (timeline) => {
 }
 
 export const delTimeline = async (id) => {
+	openLoading('Deleting the timeline')
 	await deleteDoc(doc(db, 'timelines', id));
+	closeLoading()
 }
 
 export const getUserTimeline = async () => {
+	openLoading('Getting your timeline, this shouldn\'t take long 😙')
 	const result = []
 	const loading = true;
 	const id = user.value.uid;
@@ -28,6 +32,6 @@ export const getUserTimeline = async () => {
 	querySnapshot.forEach((doc) => {
 		result.push(doc.data())
 	});
-
+	closeLoading()
 	return result
 }
