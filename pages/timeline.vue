@@ -19,13 +19,13 @@
 					:key="n.id"
 					:data-index="index" class="overflow-hidden rounded-md shadow-xl p-4 border border-slate-700 dark:border-slate-200 text w-[22rem] max-w-[100%]"
 				>
-					<h1 class="text-xl underline mb-2">Anthony's Timeline</h1>
-					<p>this is the timeline description for those that want to test</p>
+					<h1 class="text-xl underline mb-2">{{n.value.title}}</h1>
+					<p>{{n.value.desc}}</p>
 
 					<div class="flex gap-4 mt-4">
-						<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">View</span>
-						<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Share</span>
-						<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md">Delete</span>
+						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md">View</span>
+						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md">Share</span>
+						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md" @click="delTimeline(n.id)">Delete</span>
 					</div>
 				</article>
 			</transition-group>
@@ -44,9 +44,11 @@
 <script>
 import {gsap} from 'gsap'
 import { onMounted, ref } from '@nuxtjs/composition-api';
+import { useShare, useClipboard } from '@vueuse/core'
 import { useUser } from '~/composables/useGlobals'
 import { useAlert } from '~/composables/useNotification'
-import { getUserTimeline } from '~/firebase/firestore'
+import { getUserTimeline, delTimeline } from '~/firebase/firestore'
+
 
 export default {
 	name: 'SetupPage',
@@ -59,10 +61,22 @@ export default {
 
 	 setup(){
 		const result = ref([])
+		const source = ref('Hello')
+		const { text, copy, copied } = useClipboard({ source })
+		const { share } = useShare()
 		onMounted(async () => {
 			result.value = await getUserTimeline()
 		})
 		
+	
+
+		function startShare() {
+			share({
+				title: 'Hello',
+				text: 'Hello my friend!',
+				url: location.href,
+			})
+		}
 
 		const beforeEnter = (el) => {
 			  el.style.opacity = 0
@@ -80,7 +94,7 @@ export default {
 		console.log(result);
 
 		return{ 
-			beforeEnter, enter, result
+			beforeEnter, enter, result, delTimeline
 		}
 	}
 }

@@ -18,7 +18,10 @@ export const saveTimeline = async (timeline) => {
 export const delTimeline = async (id) => {
 	openLoading('Deleting the timeline')
 	await deleteDoc(doc(db, 'timelines', id));
+	location.reload()
 	closeLoading()
+
+	
 }
 
 export const getUserTimeline = async () => {
