@@ -45,6 +45,8 @@
 import {gsap} from 'gsap'
 import { useUser } from '~/composables/useGlobals'
 import { useAlert } from '~/composables/useNotification'
+import { getUserTimeline } from '~/firebase/firestore'
+
 export default {
 	name: 'SetupPage',
 	middleware:[({ redirect }) => {
@@ -55,6 +57,8 @@ export default {
 	}],
 
 	setup(){
+
+		getUserTimeline()
 		const beforeEnter = (el) => {
 			  el.style.opacity = 0
 			el.style.transform = 'translateY(100px)'
