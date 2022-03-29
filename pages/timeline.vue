@@ -24,7 +24,7 @@
 
 					<div class="flex gap-4 mt-4">
 						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md">View</span>
-						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md" @click="shareTimeline(n.id)">Share</span>
+						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md" @click="shareTimeline(n)">Share</span>
 						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md" @click="delTimeline(n.id)">Delete</span>
 					</div>
 				</article>
@@ -72,15 +72,15 @@ export default {
 			copy()
 			useAlert().openAlert('Seems something went wrong while trying to share, don\'t worry we copied it to your clipboard ')
 		}
-		const shareTimeline = (id)=>{
+		const shareTimeline = (timeline)=>{
 			if(!isSupported){
 				copyLink()
 			}
 			try{
 				console.log(location.href);
 				share({
-					title: 'Hello',
-					text: 'Hello my friend!',
+					title: timeline.value.title,
+					text: timeline.value.desc,
 					url: location.href,
 				})
 			}catch{
