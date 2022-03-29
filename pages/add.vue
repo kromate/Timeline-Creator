@@ -54,9 +54,10 @@
 
 <script>
 import {gsap} from 'gsap'
-import { ref } from '@nuxtjs/composition-api'
 import { setupGlobalData, useSetup } from '~/composables/useSetup'
 import AddContainer from '~/components/addContainer.vue'
+import { useUser } from '~/composables/useGlobals'
+import { useAlert } from '~/composables/useNotification'
 
 export default {
 	name: 'AddPage',
@@ -64,6 +65,10 @@ export default {
 	middleware: [({ redirect }) => {
 		if (!setupGlobalData.value.title) {
 			redirect('/setup')
+		}
+		if (!useUser().UserRef) {
+			redirect('/')
+			useAlert().openAlert('You need to sign in to create timelines dhur🙄')
 		}
 	}],
 	setup(){

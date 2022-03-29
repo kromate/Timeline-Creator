@@ -1,6 +1,6 @@
 <template>
 	<transition name="fade" appear>
-		<div v-if="active" class="fixed inset-x-0 h-screen w-screen bg flex justify-center items-center flex-col ">
+		<div v-if="active" class="fixed inset-x-0 h-screen w-screen bg flex justify-center items-center flex-col z-[10000]">
 			<div class="waviy text">
 				<span style="--i:1">L</span>
 				<span style="--i:2">O</span>
@@ -11,7 +11,7 @@
 				<span style="--i:7">G</span>
 			</div>
 
-			<p class="text text-3xl mt-20">{{message}}</p>
+			<p class="text text-2xl mt-20 text-center max-w-[45rem] px-4">{{message}}</p>
 		</div>
 	</transition>
 </template>

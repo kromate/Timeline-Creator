@@ -2,8 +2,9 @@
 import { useStorage } from '@vueuse/core'
 import {  useRouter } from '@nuxtjs/composition-api'
 import { GlobalState } from './useGlobals'
-import { useAlert } from './useNotification'
+import { useAlert, useLoading } from './useNotification'
 
+import { saveTimeline } from '~/firebase/firestore'
  
 
 
@@ -72,20 +73,22 @@ export const useSetup = () => {
 		sortArray(setupGlobalData.value.timelineDate)
 	}
 
-	const saveData = () => {
+	const saveData = async() => {
 		delete setupGlobalData.value.date
 		delete setupGlobalData.value.details
-
-		if (GlobalState.value.savedData == null || undefined) {
-			GlobalState.value.savedData = []
-		} else {
-			console.log(GlobalState.value.savedData.includes(setupGlobalData));
-			if (!GlobalState.value.savedData.includes(setupGlobalData)) {
-				GlobalState.value.savedData.push(setupGlobalData)
-			}
-		}
-		cleanAll()
-		router.push('/')
+		useLoading().openLoading('Saving your Timeline, check the Timeline page to edit, share and delete🥰')
+		await saveTimeline(setupGlobalData)
+		useLoading().closeLoading()
+		// if (GlobalState.value.savedData == null || undefined) {
+		// 	GlobalState.value.savedData = []
+		// } else {
+		// 	console.log(GlobalState.value.savedData.includes(setupGlobalData));
+		// 	if (!GlobalState.value.savedData.includes(setupGlobalData)) {
+		// 		GlobalState.value.savedData.push(setupGlobalData)
+		// 	}
+		// }
+		// cleanAll()
+		// router.push('/')
 
 	}
 
