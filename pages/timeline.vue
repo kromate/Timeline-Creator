@@ -43,6 +43,8 @@
 
 <script>
 import {gsap} from 'gsap'
+import { useUser } from '~/composables/useGlobals'
+import { useAlert } from '~/composables/useNotification'
 export default {
 	name: 'SetupPage',
 	middleware:[({ redirect }) => {
