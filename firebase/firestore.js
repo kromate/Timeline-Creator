@@ -1,4 +1,4 @@
-import { getFirestore, doc, setDoc, deleteDoc } from 'firebase/firestore/lite';
+import { getFirestore, doc, setDoc, deleteDoc, collection } from 'firebase/firestore/lite';
 import { v4 as uuidv4 } from 'uuid';
 import { app } from './init';
 import { useUser } from '~/composables/useGlobals';
@@ -17,5 +17,5 @@ export const delTimeline = async (id) => {
 }
 
 export const getUserTimeline = async (id) => {
-	
+	const timelineRef = collection(db, 'timelines')
 }
