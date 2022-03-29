@@ -24,7 +24,7 @@
 
 					<div class="flex gap-4 mt-4">
 						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md">View</span>
-						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md">Share</span>
+						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md" @click="shareTimeline(n.id)">Share</span>
 						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md" @click="delTimeline(n.id)">Delete</span>
 					</div>
 				</article>
@@ -64,19 +64,20 @@ export default {
 		const source = ref('Hello')
 		const { text, copy, copied } = useClipboard({ source })
 		const { share } = useShare()
+
 		onMounted(async () => {
 			result.value = await getUserTimeline()
 		})
 		
-	
-
-		function startShare() {
+		const shareTimeline = (id)=>{
 			share({
 				title: 'Hello',
 				text: 'Hello my friend!',
 				url: location.href,
 			})
 		}
+
+	
 
 		const beforeEnter = (el) => {
 			  el.style.opacity = 0
@@ -94,7 +95,7 @@ export default {
 		console.log(result);
 
 		return{ 
-			beforeEnter, enter, result, delTimeline
+			beforeEnter, enter, result, delTimeline, shareTimeline
 		}
 	}
 }
