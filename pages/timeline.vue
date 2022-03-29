@@ -63,19 +63,33 @@ export default {
 		const result = ref([])
 		const source = ref('Hello')
 		const { text, copy, copied } = useClipboard({ source })
-		const { share } = useShare()
+		const { share, isSupported} = useShare()
 
 		onMounted(async () => {
 			result.value = await getUserTimeline()
 		})
-		
-		const shareTimeline = (id)=>{
-			share({
-				title: 'Hello',
-				text: 'Hello my friend!',
-				url: location.href,
-			})
+		const copyLink = ()=>{
+			copy()
+			useAlert().openAlert('Seems something went wrong while trying to share, don\'t worry we copied it to your clipboard ')
 		}
+		const shareTimeline = (id)=>{
+			if(!isSupported){
+				copyLink()
+			}
+			try{
+				console.log(location.href);
+				share({
+					title: 'Hello',
+					text: 'Hello my friend!',
+					url: location.href,
+				})
+			}catch{
+				copyLink()
+			}
+	
+		}
+
+		
 
 	
 
@@ -92,7 +106,6 @@ export default {
 				delay: el.dataset.index * 0.1
 			})
 		}
-		console.log(result);
 
 		return{ 
 			beforeEnter, enter, result, delTimeline, shareTimeline
