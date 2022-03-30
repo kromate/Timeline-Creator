@@ -16,7 +16,7 @@
 						@enter="enter"
 					>
 				
-						<div v-for="(timeline, index) in result.value.timelineDate" :key="timeline.date" :data-index="index+1" class="timeline ">
+						<div v-for="(timeline, index) in result.value.timelineDate" :key="timeline.details" :data-index="index+1" class="timeline ">
 							<div class="timeline-icon"  @dblclick="timeline.edit = !timeline.edit"><i class="fas fa-rocket"></i></div>
 							<span class="year text">{{formatDate(timeline.date, 'year')}}</span>
 							<div class="timeline-content ">
