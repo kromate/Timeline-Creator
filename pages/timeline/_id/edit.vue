@@ -47,7 +47,7 @@
 			</div>
 		</div>
 
-		<AddContainer :id="result.value.id" :edit="true"/>
+		<AddContainer :edit="true"/>
 
 	</div>
 </template>

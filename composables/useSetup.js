@@ -4,7 +4,7 @@ import {  useRouter } from '@nuxtjs/composition-api'
 import { GlobalState } from './useGlobals'
 import { useAlert, useLoading } from './useNotification'
 
-import { saveTimeline } from '~/firebase/firestore'
+import { saveTimeline, editTimeline } from '~/firebase/firestore'
  
 
 
@@ -83,14 +83,15 @@ export const useSetup = () => {
 		router.push('/')
 	}
 
-	const saveEditedTimeline = async() => {
-		delete setupGlobalData.value.date
-		delete setupGlobalData.value.details
-		useLoading().openLoading('Saving your Timeline, check the Timeline page to edit, share and delete🥰')
-		await saveTimeline(setupGlobalData)
-		useLoading().closeLoading()
-		cleanAll()
-		router.back()
+	const saveEditedTimeline = async (id) => {
+		console.log(id);
+		// delete setupGlobalData.value.date
+		// delete setupGlobalData.value.details
+		// useLoading().openLoading('Saving your Timeline, check the Timeline page to edit, share and delete🥰')
+		// await editTimeline(setupGlobalData)
+		// useLoading().closeLoading()
+		// cleanAll()
+		// router.back()
 	}
 
 	const formatDate = (value, type) => {

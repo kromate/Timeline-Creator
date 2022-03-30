@@ -20,6 +20,12 @@ export const saveTimeline = async (timeline) => {
 	await setDoc(doc(db, 'timelines', id), {...timeline, usedId, id});
 }
 
+export const editTimeline = async (timeline) => {
+	const usedId = user.value.uid
+	const id = uuidv4()
+	await setDoc(doc(db, 'timelines', id), {...timeline, usedId, id});
+}
+
 export const delTimeline = async (id) => {
 	openLoading('Deleting the timeline')
 	await deleteDoc(doc(db, 'timelines', id));
