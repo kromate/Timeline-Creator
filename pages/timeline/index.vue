@@ -24,7 +24,7 @@
 					<p>{{n.value.desc}}</p>
 
 					<div class="flex gap-4 mt-4">
-						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md">View</span>
+						<nuxt-link class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md" :to='`/timeline/${n.id}`'>View</nuxt-link>
 						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md" @click="shareTimeline(n)">Share</span>
 						<span class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md" @click="delTimeline(n.id)">Delete</span>
 					</div>

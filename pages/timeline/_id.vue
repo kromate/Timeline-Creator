@@ -1,68 +1,64 @@
 <template>
 	<div class="bg min-h-screen mx-auto p-6">
-		<div class="text-center mb-5">
-			<h4 class="font-bold text-2xl mb-5 text">{{setupGlobalData.title}}</h4>
-			<p class="text">{{setupGlobalData.desc}}</p>
-		</div>
-		<div class="flex justify-center">
-			<div class="grid-cols-12">
+		<div v-if="result">
+			<div class="text-center mb-5">
+				<h4 class="font-bold text-2xl mb-5 text">{{result.value.title}}</h4>
+				<p class="text">{{result.value.desc}}</p>
+			</div>
+			<div class="flex justify-center">
+				<div class="grid-cols-12">
 			
-				<transition-group
-					appear
-					class="main-timeline"
-					name="sideLeft"
-					@before-enter="beforeEnter"
-					@enter="enter"
-				>
-					<div v-if="setupGlobalData.timelineDate.length < 2" :key="0" class="timeline ">
-						<div class="timeline-icon" ><i class="fas fa-rocket"></i></div>
-						<span class="year text">2001</span>
-						<div class="timeline-content ">
-							<h5 class="title">February 17</h5>
-							<p class="description text">
-								This is the start of yet another awesome timeline. <br> <span class="text-red-500">Instrustions: Double click on the rocket for more options, and this would disappear after adding two events to this timeline</span>
-							</p>
-					
-						</div>
-					</div>
-					<div v-for="(timeline, index) in setupGlobalData.timelineDate" :key="timeline.date" :data-index="index+1" class="timeline ">
-						<div class="timeline-icon"  @dblclick="timeline.edit = !timeline.edit"><i class="fas fa-rocket"></i></div>
-						<span class="year text">{{formatDate(timeline.date, 'year')}}</span>
-						<div class="timeline-content ">
-							<h5 class="title">{{formatDate(timeline.date, 'month')}}</h5>
-							<p class="description text">
-								{{timeline.details}} 
-							</p>
-							<div v-if="timeline.edit"  class="flex gap-4 mt-4 duration-500 transition-all">
-								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md cursor-pointer" @click="editData(index)">Edit</span>
-								<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md cursor-pointer" @click="delData(index)">Delete</span>
+					<transition-group
+						appear
+						class="main-timeline"
+						name="sideLeft"
+						@before-enter="beforeEnter"
+						@enter="enter"
+					>
+				
+						<div v-for="(timeline, index) in result.value.timelineDate" :key="timeline.date" :data-index="index+1" class="timeline ">
+							<div class="timeline-icon"  @dblclick="timeline.edit = !timeline.edit"><i class="fas fa-rocket"></i></div>
+							<span class="year text">{{formatDate(timeline.date, 'year')}}</span>
+							<div class="timeline-content ">
+								<h5 class="title">{{formatDate(timeline.date, 'month')}}</h5>
+								<p class="description text">
+									{{timeline.details}} 
+								</p>
 							</div>
 						</div>
-					</div>
    
 
 
-				</transition-group>
+					</transition-group>
 
+				</div>
 			</div>
 		</div>
-
-		<AddContainer/>
+	
 
 	</div>
 </template>
 
 <script>
+import { onMounted, useRoute, ref } from '@nuxtjs/composition-api'
 import {gsap} from 'gsap'
 import { setupGlobalData, useSetup } from '~/composables/useSetup'
-import AddContainer from '~/components/addContainer.vue'
+import { getSingleTimeline } from '~/firebase/firestore'
+
 
 export default {
 	name: 'ViewPage',
-	components: { AddContainer },
+
 
 	setup(){
-
+		const result = ref(null)
+		const id = useRoute().value.params.id
+		console.log(id);
+		onMounted(async () => {
+			result.value = await getSingleTimeline(id)
+			console.log(result.value);
+		})
+		
 		const {formatDate, delData, editData} = useSetup()
 		const beforeEnter = (el) => {
 			  el.style.opacity = 0
@@ -79,7 +75,7 @@ export default {
 		}
 
 		return{ 
-			beforeEnter, enter,	setupGlobalData, formatDate, delData, editData
+			beforeEnter, enter,	setupGlobalData, formatDate, delData, editData, result
 		}
 	}
 }

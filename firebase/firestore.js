@@ -2,7 +2,7 @@
 import { v4 as uuidv4 } from 'uuid';
 import { app } from './init';
 // eslint-disable-next-line import/named
-import { getFirestore, doc, setDoc, deleteDoc, collection, query, where, getDocs, onSnapshot } from 'firebase/firestore';
+import { getFirestore, doc, setDoc, deleteDoc, collection, query, where, getDocs,getDoc, onSnapshot } from 'firebase/firestore';
 import { useUser } from '~/composables/useGlobals';
 import { useLoading } from '~/composables/useNotification';
 
@@ -33,6 +33,7 @@ export const getUserTimeline = async () => {
 	openLoading('Getting your timeline, this shouldn\'t take long 😙')
 
 	const id = user.value.uid;
+	result = []
 
 	const userTimeline = query(timelineRef, where('usedId', '==', id));
 	const querySnapshot = await getDocs(userTimeline);
@@ -52,4 +53,14 @@ export const getUserTimeline = async () => {
 	return result 
 }
 
-
+export const getSingleTimeline = async (id) => {
+	openLoading('Loading up the timeline 👽')
+	const singleTimelineRef = doc(db, 'timelines', id);
+	const docSnap = await getDoc(singleTimelineRef);
+	closeLoading()
+	if (docSnap.exists()) {
+		return docSnap.data()
+	} else {
+		return null
+	}
+}
