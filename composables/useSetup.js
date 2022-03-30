@@ -32,7 +32,7 @@ export const setupGlobalData = useStorage('setupGlobalData', {
 	timelineDate: []
 })
 
-const cleanAll = () => {
+export const cleanAll = () => {
 	setupGlobalData.value.title = ''
 	setupGlobalData.value.desc = ''
 	setupGlobalData.value.date = ''
@@ -73,11 +73,12 @@ export const useSetup = () => {
 		sortArray(setupGlobalData.value.timelineDate)
 	}
 
-	const saveData = async() => {
-		delete setupGlobalData.value.date
-		delete setupGlobalData.value.details
+	const saveData = async () => {
+		const duplicateObject = JSON.parse(JSON.stringify(setupGlobalData));
+		delete duplicateObject.value.date
+		delete duplicateObject.value.details
 		useLoading().openLoading('Saving your Timeline, check the Timeline page to edit, share and delete🥰')
-		await saveTimeline(setupGlobalData)
+		await saveTimeline(duplicateObject)
 		useLoading().closeLoading()
 		cleanAll()
 		router.push('/')
@@ -105,6 +106,7 @@ export const useSetup = () => {
 
 	const editData = (index) => {
 		const editingData = setupGlobalData.value.timelineDate.find((el, i) => i === index)
+	
 		setupGlobalData.value.date = editingData.date
 		setupGlobalData.value.details = editingData.details
 		setupGlobalData.value.edit = false

@@ -40,7 +40,7 @@
 					<button class="btn h-[60px]	bg-black w-1/2 text-white mb-4" type="button" @click.prevent="$router.back()">Back</button>
 					<button class="btn h-[60px]	bg-black w-1/2 text-white mb-4" type="submit" >add</button>
 				</div>
-				<button class="btn h-[60px]	bg-black w-full text-white " type="button" @click.prevent="edit ?saveEditedTimeline(id) : saveData">Save</button>
+				<button class="btn h-[60px]	bg-black w-full text-white " type="button" @click.prevent="edit ?saveEditedTimeline(id) : saveData()">Save</button>
 			</form>
 		</div>
 	</transition>

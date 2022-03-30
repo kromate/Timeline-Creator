@@ -47,7 +47,7 @@
 			</div>
 		</div>
 
-		<AddContainer :edit="true"/>
+		<AddContainer v-if="result" :id="result.id" :edit="true"/>
 
 	</div>
 </template>
@@ -77,7 +77,9 @@ export default {
 		onMounted(async () => {
 			result.value = await getSingleTimeline(id)
 			// eslint-disable-next-line no-import-assign
-			setupGlobalData.value = result.value.value
+			setupGlobalData.value.title = result.value.value.title
+			setupGlobalData.value.desc = result.value.value.desc
+			setupGlobalData.value.timelineDate = result.value.value.timelineDate
 		})
 		const {formatDate, delData, editData} = useSetup()
 		const beforeEnter = (el) => {
