@@ -25,8 +25,8 @@
 					<div class="flex gap-4 mt-4">
 						<nuxt-link
 							class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md"
-							:to="`/timeline/${n.id}`"
-						>View</nuxt-link
+							:to="`/timeline/${n.id}/edit`"
+						>edit</nuxt-link
 						>
 						<span
 							class="dark:bg-white bg-black dark:text-black text-white px-3 cursor-pointer rounded-md"
