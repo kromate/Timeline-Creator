@@ -79,10 +79,18 @@ export const useSetup = () => {
 		useLoading().openLoading('Saving your Timeline, check the Timeline page to edit, share and delete🥰')
 		await saveTimeline(setupGlobalData)
 		useLoading().closeLoading()
-	
 		cleanAll()
 		router.push('/')
+	}
 
+	const saveEditedTimeline = async() => {
+		delete setupGlobalData.value.date
+		delete setupGlobalData.value.details
+		useLoading().openLoading('Saving your Timeline, check the Timeline page to edit, share and delete🥰')
+		await saveTimeline(setupGlobalData)
+		useLoading().closeLoading()
+		cleanAll()
+		router.back()
 	}
 
 	const formatDate = (value, type) => {
@@ -108,7 +116,7 @@ export const useSetup = () => {
 	}
 
 	return {
-		addData, formatDate, delData, saveData, editData
+		addData, formatDate, delData, saveData, editData, saveEditedTimeline
 	}
 }
 

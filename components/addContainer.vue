@@ -47,14 +47,17 @@
 </template>
 
 <script>
-import { setupGlobalData, useSetup } from '~/composables/useSetup'
+import { setupGlobalData, useSetup,  } from '~/composables/useSetup'
 export default {
-	name:'AddContainer',    
+	name:'AddContainer', 
+	props:{
+
+	},
 	setup(){
 
-		const {addData, saveData} = useSetup()
+		const {addData, saveData, saveEditedTimeline} = useSetup()
 		return{
-			setupGlobalData, addData, saveData
+			setupGlobalData, addData, saveData, saveEditedTimeline
 		}
 	}
 }

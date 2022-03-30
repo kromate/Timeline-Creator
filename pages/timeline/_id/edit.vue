@@ -76,7 +76,8 @@ export default {
 
 		onMounted(async () => {
 			result.value = await getSingleTimeline(id)
-			console.log(result.value);
+			// eslint-disable-next-line no-import-assign
+			setupGlobalData.value = result.value.value
 		})
 		const {formatDate, delData, editData} = useSetup()
 		const beforeEnter = (el) => {
