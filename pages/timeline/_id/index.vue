@@ -2,8 +2,8 @@
 	<div class="bg min-h-screen mx-auto p-6">
 		<div v-if="result">
 			<div class="text-center mb-5">
-				<h4 class="font-bold text-2xl mb-5 text">{{result.value.title}}</h4>
-				<p class="text">{{result.value.desc}}</p>
+				<h4 class="font-bold text-2xl mb-5 text">{{setupGlobalData.title}}</h4>
+				<p class="text">{{setupGlobalData.desc}}</p>
 			</div>
 			<div class="flex justify-center">
 				<div class="grid-cols-12">
@@ -66,7 +66,7 @@
 import { onMounted, useRoute, ref } from '@nuxtjs/composition-api'
 import {gsap} from 'gsap'
 import { setupGlobalData, useSetup } from '~/composables/useSetup'
-import { getSingleTimelineForEdit } from '~/firebase/firestore'
+import { getSingleTimeline } from '~/firebase/firestore'
 
 
 export default {
@@ -77,8 +77,9 @@ export default {
 		const result = ref(null)
 		const id = useRoute().value.params.id
 		onMounted(async () => {
-			result.value = await getSingleTimelineForEdit(id)
-			console.log(result.value);
+			result.value = await getSingleTimeline(id)
+			// eslint-disable-next-line no-import-assign
+			setupGlobalData = result.value.value
 		})
 		
 		const {formatDate, delData, editData} = useSetup()
