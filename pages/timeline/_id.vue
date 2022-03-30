@@ -34,6 +34,14 @@
 				</div>
 			</div>
 		</div>
+
+		<div v-else class="">
+			<lottie-player src="https://assets2.lottiefiles.com/packages/lf20_4owMZE.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+			<h3 class="text text-center">We would not find your requested timeline. If someone sent this to you beat them up 😼, you can also create your by click the button below</h3>
+			<nuxt-link to="/setup" class=" btn max-w-[75%] mt-4 justify-center items-center flex">
+				Create Timeline
+			</nuxt-link >
+		</div>
 	
 
 	</div>
