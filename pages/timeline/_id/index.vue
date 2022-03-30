@@ -2,8 +2,8 @@
 	<div class="bg min-h-screen mx-auto p-6">
 		<div v-if="result">
 			<div class="text-center mb-5">
-				<h4 class="font-bold text-2xl mb-5 text">{{setupGlobalData.title}}</h4>
-				<p class="text">{{setupGlobalData.desc}}</p>
+				<h4 class="font-bold text-2xl mb-5 text">{{result.value.title}}</h4>
+				<p class="text">{{result.value.desc}}</p>
 			</div>
 			<div class="flex justify-center">
 				<div class="grid-cols-12">
@@ -16,18 +16,7 @@
 						@enter="enter"
 					>
 				
-						<div v-if="setupGlobalData.timelineDate.length < 2" :key="0" class="timeline ">
-							<div class="timeline-icon" ><i class="fas fa-rocket"></i></div>
-							<span class="year text">2001</span>
-							<div class="timeline-content ">
-								<h5 class="title">February 17</h5>
-								<p class="description text">
-									This is the start of yet another awesome timeline. <br> <span class="text-red-500">Instrustions: Double click on the rocket for more options, and this would disappear after adding two events to this timeline</span>
-								</p>
-					
-							</div>
-						</div>
-						<div v-for="(timeline, index) in setupGlobalData.timelineDate" :key="timeline.date" :data-index="index+1" class="timeline ">
+						<div v-for="(timeline, index) in result.value.timelineDate" :key="timeline.date" :data-index="index+1" class="timeline ">
 							<div class="timeline-icon"  @dblclick="timeline.edit = !timeline.edit"><i class="fas fa-rocket"></i></div>
 							<span class="year text">{{formatDate(timeline.date, 'year')}}</span>
 							<div class="timeline-content ">
@@ -35,10 +24,6 @@
 								<p class="description text">
 									{{timeline.details}} 
 								</p>
-								<div v-if="timeline.edit"  class="flex gap-4 mt-4 duration-500 transition-all">
-									<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md cursor-pointer" @click="editData(index)">Edit</span>
-									<span class="dark:bg-white bg-black dark:text-black text-white px-3 rounded-md cursor-pointer" @click="delData(index)">Delete</span>
-								</div>
 							</div>
 						</div>
    
@@ -76,10 +61,10 @@ export default {
 	setup(){
 		const result = ref(null)
 		const id = useRoute().value.params.id
+		console.log(id);
 		onMounted(async () => {
 			result.value = await getSingleTimeline(id)
-			// eslint-disable-next-line no-import-assign
-			setupGlobalData = result.value.value
+			console.log(result.value);
 		})
 		
 		const {formatDate, delData, editData} = useSetup()

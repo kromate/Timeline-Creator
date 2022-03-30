@@ -78,7 +78,7 @@ export default {
 		({ redirect }) => {
 			if (!useUser().UserRef) {
 				redirect('/');
-				useAlert().openAlert('You need to sign in to create timelines dhur🙄');
+				useAlert().openAlert('You need to sign in to View timelines dhur🙄');
 			}
 		},
 	],
