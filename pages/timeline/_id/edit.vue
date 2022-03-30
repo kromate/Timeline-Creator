@@ -59,6 +59,7 @@ import { setupGlobalData, useSetup } from '~/composables/useSetup'
 import AddContainer from '~/components/addContainer.vue'
 import { useUser } from '~/composables/useGlobals'
 import { useAlert } from '~/composables/useNotification'
+import { getSingleTimeline } from '~/firebase/firestore'
 
 export default {
 	name: 'EditPage',

@@ -64,3 +64,15 @@ export const getSingleTimeline = async (id) => {
 		return null
 	}
 }
+
+export const getSingleTimelineForEdit = async (id) => {
+	openLoading('Loading up the timeline 👽')
+	const singleTimelineRef = doc(db, 'timelines', id);
+	const docSnap = await getDoc(singleTimelineRef);
+	closeLoading()
+	if (docSnap.exists()) {
+		return docSnap.data()
+	} else {
+		return null
+	}
+}
