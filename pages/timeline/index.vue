@@ -19,7 +19,7 @@
 					:data-index="index"
 					class="overflow-hidden rounded-md shadow-xl p-4 border border-slate-700 dark:border-slate-200 text w-[22rem] max-w-[100%]"
 				>
-					<h1 class="text-xl underline mb-2">{{ n.value.title }}</h1>
+					<nuxt-link class="text-xl underline mb-2" :to="`/timeline/${n.id}`">{{ n.value.title }}</nuxt-link>
 					<p>{{ n.value.desc }}</p>
 
 					<div class="flex gap-4 mt-4">
