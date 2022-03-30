@@ -85,14 +85,14 @@ export const useSetup = () => {
 	}
 
 	const saveEditedTimeline = async (id) => {
-		console.log(id);
-		// delete setupGlobalData.value.date
-		// delete setupGlobalData.value.details
-		// useLoading().openLoading('Saving your Timeline, check the Timeline page to edit, share and delete🥰')
-		// await editTimeline(setupGlobalData)
-		// useLoading().closeLoading()
-		// cleanAll()
-		// router.back()
+		const duplicateObject = JSON.parse(JSON.stringify(setupGlobalData));
+		delete duplicateObject.value.date
+		delete duplicateObject.value.details
+		useLoading().openLoading('Saving your Timeline, check the Timeline page to edit, share and delete🥰')
+		await editTimeline(duplicateObject, id)
+		useLoading().closeLoading()
+		cleanAll()
+		router.back()
 	}
 
 	const formatDate = (value, type) => {
