@@ -47,7 +47,7 @@
 			</div>
 		</div>
 
-		<AddContainer/>
+		<AddContainer :id="result.value.id" :edit="true"/>
 
 	</div>
 </template>
@@ -95,7 +95,7 @@ export default {
 		}
 
 		return{ 
-			beforeEnter, enter,	setupGlobalData, formatDate, delData, editData
+			beforeEnter, enter,	setupGlobalData, formatDate, delData, editData, result
 		}
 	}
 }
