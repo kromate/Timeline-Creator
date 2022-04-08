@@ -86,7 +86,7 @@ export default {
 	setup() {
 		const result = ref([]);
 		const source = ref('');
-		const { text, copy, copied } = useClipboard({ source });
+		const { copy } = useClipboard({ source });
 		const { share, isSupported } = useShare();
 
 		onMounted(async () => {
