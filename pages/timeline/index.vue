@@ -42,7 +42,7 @@
 				</article>
 			</transition-group>
 
-			<div v-else>
+			<div v-else class="flex flex-col justify-center items-center">
 				<lottie-player
 					src="https://assets2.lottiefiles.com/packages/lf20_heejrebm.json"
 					background="transparent"
